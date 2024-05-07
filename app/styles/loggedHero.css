@@ -1,0 +1,12 @@
+.hero-question {
+     letter-spacing: 3px;
+     text-transform: uppercase;
+     color: #ffcc00;
+}
+
+
+.hero-text {
+     font-size: 75px;
+     /* width: 50%; */
+     /* line-height: 30px; */
+}

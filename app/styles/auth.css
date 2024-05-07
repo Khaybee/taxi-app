@@ -143,6 +143,9 @@ input[type="radio"]{
   border-color: rgba(0, 0, 0, 0.9);
   /* box-shadow: inset 0 0 3px #fb6aae; */
 }
+/* .form-inner form .field input:hover{
+  background-color: #FFC000;
+} */
 .form-inner form .field input::placeholder{
   color: #999;
   transition: all 0.3s ease;
@@ -250,6 +253,13 @@ form .btns input[type="submit"]{
   left: 100%; /* Move from left to right on hover */
 }
 
+.links-color {
+  color: #FFC000 !important;
+}
+
+.links-color:hover {
+  color: #facb3d !important;
+}
 
 /* 
 .bookNow {

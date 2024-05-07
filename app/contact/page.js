@@ -48,7 +48,7 @@ const Contact = () => {
         <div className="row align-items-center g-lg-5 py-5">
           <div className="col-lg-7 text-center text-lg-start">
             <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-              Leave a Message
+              Leave Us a Message
             </h1>
             <p className="col-lg-12 fs-5">
               We'd love to hear from you! If you have questions, suggestions, or
@@ -63,23 +63,23 @@ const Contact = () => {
               <div className="form-floating mb-3">
                 <input
                   type="email"
-                  className=" p-3 w-100"
+                  className=" p-3 w-100 fs-5"
                   id="floatingInput"
                   placeholder="Email address"
                 />
                 <label for="floatingInput"></label>
               </div>
               <div className="form-floating mb-3">
-                {/* <input type="text" className="form-control" id="floatingPassword" placeholder="" /> */}
+                
                 <textarea
                   textarea
                   id="w3review"
                   name="message"
                   rows="10"
                   cols="36"
-                  className=" p-3"
+                  className=" p-3 w-100 fs-5" placeholder="Write message"
                 >
-                  Message
+                
                 </textarea>
               </div>
 

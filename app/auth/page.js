@@ -82,7 +82,7 @@ export default function Home() {
                       Remember Me
                     </label>
                   </div>
-                  <Link href="#" className=" fw-medium">
+                  <Link href="#" className="links-color fw-medium">
                     Forgot password?
                   </Link>
                 </div>
@@ -91,7 +91,7 @@ export default function Home() {
                   <input type="submit" value="Login" />
                 </div>
                 <div className="signup-link mt-2">
-                  Not a member? <Link href="">Signup now</Link>
+                  Not a member? <Link href="" className="links-color">Signup now</Link>
                 </div>
               </form>
               <form className="signup">
@@ -117,7 +117,7 @@ export default function Home() {
                 </div>
                 <div className="signup-link mt-2">
                   Already have an account?{" "}
-                  <Link href="" className="">
+                  <Link href="" className="links-color">
                     Login now
                   </Link>
                 </div>
