@@ -20,8 +20,8 @@ const TaxiBrands = (props) => {
 
 
                          <div className="row container-fluid mx-auto text-center align-items-center mt-60 mb-60">
-                             
-                              <div className="col fw-bold">  <img src="/images/team/team01.png" width="80px" className=" rounded-4 me-5 d-md-inline-block d-none" /> BOLT</div>
+
+                              <div className="col fw-bold">  <img src="/images/icon/taxify-is-now-bolt.png" width="85px" className=" rounded-2 me-5 d-md-inline-block d-none" /> BOLT</div>
                               <div className="col fw-bold">5000</div>
                               <div className="col">
                                    <div
@@ -36,8 +36,8 @@ const TaxiBrands = (props) => {
                               </div>
                          </div>
                          <div className="row container-fluid mx-auto text-center align-items-center mt-60 mb-60">
-                             
-                              <div className="col fw-bold">  <img src="/images/team/team01.png" width="80px" className=" rounded-4 me-5 d-md-inline-block d-none" /> UBER</div>
+
+                              <div className="col fw-bold">  <img src="/images/icon/uber-logo.jpg" width="85px" className=" rounded-2 me-5 d-md-inline-block d-none" /> UBER</div>
                               <div className="col fw-bold">3500</div>
                               <div className="col">
                                    <div
@@ -52,8 +52,8 @@ const TaxiBrands = (props) => {
                               </div>
                          </div>
                          <div className="row container-fluid mx-auto text-center align-items-center mt-60 mb-60">
-                             
-                              <div className="col fw-bold">  <img src="/images/team/team01.png" width="80px" className=" rounded-4 me-5 d-md-inline-block d-none" /> LYFT</div>
+
+                              <div className="col fw-bold">  <img src="/images/icon/lyft-logo.png" width="80px" className=" rounded-2 me-5 d-md-inline-block d-none" /> LYFT</div>
                               <div className="col fw-bold">4800</div>
                               <div className="col">
                                    <div
@@ -68,8 +68,8 @@ const TaxiBrands = (props) => {
                               </div>
                          </div>
                          <div className="row container-fluid mx-auto text-center align-items-center mt-60 mb-60">
-                             
-                              <div className="col fw-bold">  <img src="/images/team/team01.png" width="80px" className=" rounded-4 me-5 d-md-inline-block d-none" /> RIDA</div>
+
+                              <div className="col fw-bold">  <img src="/images/icon/rida-logo.png" width="80px" className=" rounded-2 me-5 d-md-inline-block d-none" /> RIDA</div>
                               <div className="col fw-bold">5500</div>
                               <div className="col">
                                    <div
