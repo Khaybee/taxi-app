@@ -11,11 +11,11 @@ const InputAddress = (props) => {
      }, []);
      return (
           <>
-               <div className="body  container-fluid bg-body-secondary h-100">
-                    <div className="d-flex pt-100 g-4 ms-5 h-100">
+               <div className="body  container-fluid">
+                    <div className="d-flex pt-100 g-4 ms-5 h-100 mb-140">
                          <SideProfile />
                          <div className="col-lg-7 col-12 bg-white container-fluid d-flex flex-column rounded-4 p-5 ps-lg-5 ">
-                              <div className=" w-75  rounded-3">
+                              <div className="   rounded-3">
                                    {" "}
                                    {isMounted && (
                                         <div width="100%">
@@ -52,8 +52,8 @@ const InputAddress = (props) => {
                                    data-animation="fadeInDown"
                                    data-delay=".2s"
                               >
-                                   <a href="about.html" className="btn ss-btn smoth-scroll">
-                                        Find Driver <i className="fal fa-long-arrow-up"></i>
+                                   <a href="/compare-prices" className="btn ss-btn smoth-scroll z-0">
+                                        Get Options <i className="fal fa-long-arrow-up"></i>
                                    </a>
                               </div>
 

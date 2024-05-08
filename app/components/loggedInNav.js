@@ -38,10 +38,10 @@ const LoggedInNav = () => {
   return (
     <>
       <header
-        className={`px-3 border-bottom bg-body-secondary ${isFixed ? "fixed-nav" : ""}`}
+        className={`px-3 border-bottom ${isFixed ? "fixed-nav" : ""}`}
       >
         <div className="container-fluid">
-          <div className="d-flex flex-wrap align-items-center bg-body-secondary justify-content-between justify-content-lg-start">
+          <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
             <a
               href="/"
               className="  d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"
