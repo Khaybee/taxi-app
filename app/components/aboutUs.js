@@ -16,7 +16,7 @@ const AboutUs = (props) => {
         id="pricing"
         className="pricing-area pt-145 pb-145 fix p-relative"
       >
-        <div className="contain">
+        <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-8">
               <div
@@ -29,7 +29,7 @@ const AboutUs = (props) => {
             </div>
           </div>
           <div className="row d-flex align-items-stretch flex-wrap">
-            <div className="col-lg-3 col-md-6 text-center  ">
+            <div className="col-xl-3 col-lg-6 col-md-6 text-center  ">
               <div className="pricing-box mb-60">
                 <div className="pricing-head">
                   <h3>
@@ -49,7 +49,7 @@ const AboutUs = (props) => {
                 
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center  ">
+            <div className="col-xl-3 col-lg-6 col-md-6 text-center  ">
               <div className="pricing-box mb-60">
                 <div className="pricing-head">
                   <h3>
@@ -70,7 +70,7 @@ const AboutUs = (props) => {
               
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center  ">
+            <div className="col-xl-3 col-lg-6 col-md-6 text-center  ">
               <div className="pricing-box mb-60">
                 <div className="pricing-head">
                   <h3>
@@ -91,7 +91,7 @@ const AboutUs = (props) => {
             
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 text-center  ">
+            <div className="col-xl-3 col-lg-6 col-md-6 text-center  ">
               <div className="pricing-box mb-60">
                 <div className="pricing-head">
                   <h3>

@@ -15,7 +15,7 @@ const Footer = () => {
         }}
       >
         <div className="footer-top-heiding">
-          <div className="contain">
+          <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-6">
                 <div className="f-logo">
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-top pb-70">
-          <div className="contain">
+          <div className="container">
             <div className="row justify-content-between">
               {/* <div className="col-xl-4 col-lg-4 col-sm-6">
                 <div className="footer-widget mb-30">
@@ -57,7 +57,7 @@ const Footer = () => {
                 </div>
               </div> */}
 
-              <div className="col-xl-1 col-lg-2 col-sm-6 mb-sm-5">
+              <div className="col-xl-2 col-lg-2 col-sm-6 mb-sm-5">
                 <div className="footer-widget mb-30">
                   <div className="f-widget-title">
                     <h2>Explore</h2>
@@ -154,7 +154,7 @@ const Footer = () => {
             <div className="row align-items-center">
               <div className="col-lg-4 col-md-4">
                 <div className="copy-text">
-                  Copyright &copy; 2024 Citylink. All rights reserved.
+                  Copyright &copy; 2024 SavDrive. All rights reserved.
                 </div>
               </div>
               <div className="col-lg-8 col-md-8 text-right">

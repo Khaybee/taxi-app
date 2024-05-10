@@ -38,7 +38,7 @@ const Banner = props => {
             }}
           >
             {/* <div className="container"> */}
-            <div className="contain ">
+            <div className="container">
               <div className="row justify-content-center align-items-center">
                 <div className="col-lg-12 w-75 col-md-12">
                   <div className="slider-content mt-120 text-center">

@@ -29,7 +29,7 @@ const TaxiBrands = (props) => {
                                         data-animation="fadeInDown"
                                         data-delay=".2s"
                                    >
-                                        <a href="/chooseOption" className="btn ss-btn smoth-scroll z-0 p-sm-3">
+                                        <a href="/choose-option" className="btn ss-btn smoth-scroll z-0 p-sm-3">
                                              FIND DRIVERS <i className="fal fa-long-arrow-up"></i>
                                         </a>
                                    </div>
@@ -45,7 +45,7 @@ const TaxiBrands = (props) => {
                                         data-animation="fadeInDown"
                                         data-delay=".2s"
                                    >
-                                        <a href="/chooseOption" className="btn ss-btn smoth-scroll z-0 p-sm-3">
+                                        <a href="/choose-option" className="btn ss-btn smoth-scroll z-0 p-sm-3">
                                              FIND DRIVERS <i className="fal fa-long-arrow-up"></i>
                                         </a>
                                    </div>
@@ -61,7 +61,7 @@ const TaxiBrands = (props) => {
                                         data-animation="fadeInDown"
                                         data-delay=".2s"
                                    >
-                                        <a href="/chooseOption" className="btn ss-btn smoth-scroll z-0 p-sm-3">
+                                        <a href="/choose-option" className="btn ss-btn smoth-scroll z-0 p-sm-3">
                                              FIND DRIVERS <i className="fal fa-long-arrow-up"></i>
                                         </a>
                                    </div>
@@ -77,7 +77,7 @@ const TaxiBrands = (props) => {
                                         data-animation="fadeInDown"
                                         data-delay=".2s"
                                    >
-                                        <a href="/chooseOption" className="btn ss-btn smoth-scroll z-0 p-sm-3">
+                                        <a href="/choose-option" className="btn ss-btn smoth-scroll z-0 p-sm-3">
                                              FIND DRIVERS <i className="fal fa-long-arrow-up"></i>
                                         </a>
                                    </div>

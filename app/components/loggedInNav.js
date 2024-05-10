@@ -40,7 +40,7 @@ const LoggedInNav = () => {
       <header
         className={`px-3 border-bottom ${isFixed ? "fixed-nav" : ""}`}
       >
-        <div className="container-fluid">
+        <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
             <a
               href="/"
@@ -87,8 +87,8 @@ const LoggedInNav = () => {
                 aria-expanded="false"
               >
                 <img
-                  src="https://github.com/mdo.png"
-                  alt="mdo"
+                  src="/images/team/team01.png"
+                  alt="profile picture"
                   width="50"
                   height="50"
                   className="rounded-circle"

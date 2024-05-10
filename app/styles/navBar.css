@@ -66,8 +66,12 @@ header {
 
 
 @media (max-width: 1000px){
-     .nav-logged-li {
-          /* visibility: hidden; */
+     /* .nav-logged-li, .login-btn {
+       
           display: none;
-     }
+     } */
+
+     /* .logos {
+display: block;
+     } */
 }

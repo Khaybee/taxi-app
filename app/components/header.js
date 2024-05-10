@@ -105,7 +105,7 @@ const Header = () => {
                         </li>
                       </ul>
 
-                      <Link href="/auth" className="btn btn-primary ms-0 fs-5">
+                      <Link href="/auth" className="btn login-btn btn-primary ms-0 fs-5">
                         Login
                       </Link>
                     </div>

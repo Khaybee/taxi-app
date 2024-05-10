@@ -7,7 +7,7 @@ const StepSection = () => {
     return (
         <>
            <section className="steps-area p-relative pt-120 pb-120">
-          <div className="contain">
+          <div className="container">
             <div className="row justify-content-center align-items-center">
               <div className="col-lg-7">
                 <div
