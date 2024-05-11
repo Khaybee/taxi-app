@@ -5,6 +5,7 @@ import { authpassword, hash, generateOTP, genToken, } from "../../utils/helperFu
 import { sendMail } from "../../utils/sendEmail";
 import fs from "fs";
 import path from "path";
+import { log } from "console";
 
 
 
@@ -79,8 +80,11 @@ export async function POST(req) {
 
         // hash the password entered using the function created to hash
         const hashedPassword = authpassword(salt, password);
+      
 
         const [checkUser] = await pool.promise().query(checkEmailLogin, [email]);
+
+        
 
         console.log(checkUser);
         // Validate the query result
@@ -139,7 +143,7 @@ export async function POST(req) {
         });
           
     } catch (err) {
-
+        console.log(err);
         return NextResponse.json({ success: false, error: `Something went wrong: ${err}` }, { status: 500 })
     }
 }
