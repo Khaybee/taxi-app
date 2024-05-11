@@ -14,10 +14,30 @@ import BookingSection from "./components/bookingSection";
 import CallToAction from "./components/callToAction";
 import SecondSection from "./components/secondSection";
 
+import Form from "./auth/components/form";
+import { useState } from "react";
+import sendData from "./auth/components/requestAPI";
+
 const Home = () => {
+
+  const [visible, setVisible] = useState(false);
+
+  function makeVisible() {
+    setVisible(true);
+  }
+
+  const handleFormSubmit = (formData) => {
+    const result = sendData(formData); 
+
+    return result;
+  };
+
   return (
     <>
-      <Header />
+     {visible && ( <div className="form-body">
+        <Form onSubmit={handleFormSubmit} />
+      </div>)}
+      <Header change={makeVisible} />
 
       <main>
         <Hero />
@@ -33,6 +53,9 @@ const Home = () => {
        
       </main>
       <Footer />
+
+    
+  
     </>
   );
 };

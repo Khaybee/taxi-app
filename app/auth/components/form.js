@@ -15,13 +15,21 @@ const Form = ({ onSubmit }) => {
 
         const [popup, setPopup] = useState({
           show: false,
-          message: "",
-          type: "", // "success" or "error"
+          message: "It all failed",
+          type: "error", // "success" or "error"
         });
 
         const handleShowPopup = (message, type) => {
           setPopup({ show: true, message, type });
         };
+
+        useEffect(()  => {
+          document.body.style.overflow = 'hidden';
+      
+          return () => {
+              document.body.style.overflow = 'scroll';
+          };
+      }, []);
 
 
         const handleChange = (e) => {
@@ -41,12 +49,15 @@ const Form = ({ onSubmit }) => {
             // Check the response and call `handleShowPopup` based on the result
             if (response.success === true) {
               handleShowPopup("Account created successfully!", "success");
+              console.log(`show: ${popup.show} message: ${popup.message} type: ${popup.type}`);
             } else {
               handleShowPopup("An error occurred. Please try again.", "error");
+              console.log(`show: ${popup.show} message: ${popup.message} type: ${popup.type}`);
             }
           })
           .catch((error) => {
             handleShowPopup("An error occurred. Please try again.", "error");
+            console.log(`show: ${popup.show} message: ${popup.message} type: ${popup.type}`);
           });
         };
 
@@ -174,17 +185,16 @@ const Form = ({ onSubmit }) => {
                   </Link>
                 </div>
               </form>
-
-                  {/* Conditional rendering for popup */}
-      {popup.show && (
-        <div className={`popup ${popup.type}`}>
-          <span>{popup.message}</span>
-          <button onClick={() => setPopup({ ...popup, show: false })}>Close</button>
-        </div>
-      )}
             </div>
           </div>
         </div>
+          {/* Conditional rendering for popup */}
+          {popup.show && (
+          <div className={`popup ${popup.type}`}>
+            <p>{popup.message}</p>
+            <button onClick={() => setPopup({ ...popup, show: false })}>Close</button>
+          </div>
+        )}
       </div>
     </>
   );

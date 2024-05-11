@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-const Header = () => {
+const Header = ({change}) => {
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -105,9 +105,9 @@ const Header = () => {
                         </li>
                       </ul>
 
-                      <Link href="/auth" className="btn login-btn btn-primary ms-0 fs-5">
+                      <div className="btn login-btn btn-primary ms-0 fs-5" onClick={() => change()}>
                         Login
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </nav>
