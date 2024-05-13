@@ -2,25 +2,19 @@
 import { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import LoggedInBanner from "../components/loggedInHero";
 import InputAddress from "./component/inputAdd";
 import Footer from "../components/footer";
+import LoggedInNav from "../components/loggedInNav";
 
-const AddressForm = () => {
+const AddressPage = () => {
 
   return (
     <>
-    <div className=" bg-body-secondary">
+         <LoggedInNav />
 
-  
-    <LoggedInBanner question="Ready for your ride?" command="Enter your destination below"/>
-    <InputAddress />
-
-    <Footer />
-    
-    </div>
+        <InputAddress />
     </>
-  );
+);
 };
 
-export default AddressForm;
+export default AddressPage;

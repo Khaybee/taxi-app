@@ -19,8 +19,9 @@
      width: 100%;
      place-items: center;
      /* background: -webkit-linear-gradient(left, #003366,#004080,#0059b3 */
-     background: -webkit-linear-gradient(top, #424242,#292929,#131313)
-     /* background: #252323; */
+     /* background: -webkit-linear-gradient(top, #424242,#292929,#131313) */
+     /* background: #535252; */
+     background: #fff;
      /* background: rgba(0, 0, 0, 0.9); */
 }
 ::selection{
@@ -29,7 +30,9 @@
 }
 .wrapper{
   overflow: hidden;
-  max-width: 500px;
+  /* max-width: 400px; */
+  max-width: 400px;
+  /* max-height: 70%; */
   background: #fff;
   padding: 30px;
   border-radius: 15px;
@@ -123,19 +126,20 @@ input[type="radio"]{
   transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 .form-inner form .field{
-  height: 50px;
+  height: 40px;
   width: 100%;
   margin-top: 20px;
 }
 .form-inner form .field input{
   height: 100%;
+  /* height: 70%; */
   width: 100%;
   outline: none;
   padding-left: 15px;
   border-radius: 15px;
   border: 1px solid lightgrey;
   border-bottom-width: 2px;
-  font-size: 17px;
+  font-size: 15px;
   transition: all 0.3s ease;
 }
 .form-inner form .field input:focus{
@@ -215,43 +219,22 @@ form .btns input[type="submit"]{
      margin-top: 5px;
 }
 
+.error {
+  color: red;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+form .btns input[type="submit"]:hover{
+  background-color: #373737;
+}
+
+button .submitHover:hover { 
+  background-color: #d7bd6f;
+}
+
 /* HEADER SECTION */
 
-.bookNow {
-  background: -webkit-linear-gradient(right,#003366,#004080,#0059b3
-  , #0073e6);
-
-}
-
-.bookNow {
-  position: relative; /* Necessary for pseudo-elements */
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333; /* Base color of the button */
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  overflow: hidden; /* To ensure pseudo-elements don't go beyond boundaries */
-  transition: background-color 0.3s ease;
-}
-
-.bookNow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  height: 100%;
-  width: 200%; /* Make it wide enough to create a diagonal effect */
-  background: linear-gradient(120deg, transparent 10%, white 10%, transparent 80%); /* Gradient for the shine */
-  transition: all 0.5s ease; /* Control the speed and ease of the animation */
-}
-
-.bookNow:hover::before {
-  left: 100%; /* Move from left to right on hover */
-}
 
 .links-color {
   color: #FFC000 !important;
@@ -260,6 +243,8 @@ form .btns input[type="submit"]{
 .links-color:hover {
   color: #facb3d !important;
 }
+
+
 
 /* 
 .bookNow {

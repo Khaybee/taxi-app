@@ -4,13 +4,17 @@ const insertSignup = `insert into user( fullName, email, password, salt, otp) va
 
 const checkEmailLogin = `select * from user where email = ?`;
 
-const checkotp = `select * from user where otp = ?`;
+const checkotp = `select * from user where id = ?`;
 
 const updateLogin = "update user set password = ?, salt = ? where email = ?";
 
-const updateVerify = "update user set isVerified = ?, otp = NULL where otp = ?";
+const updateVerify = "update user set isVerified = ?, otp = NULL where id = ?";
 
 const updateOTP = "update user set otp = ? where email = ?"
+
+const saveNewSubs = "insert into NewsLetter(email) values(?)"
+
+const subExist = "select * from NewsLetter where email=?"
 
 module.exports = {
      insertSignup,
@@ -19,4 +23,6 @@ module.exports = {
     updateLogin,
     updateVerify,
     updateOTP,
+    saveNewSubs,
+    subExist
 }

@@ -12,7 +12,8 @@ const sendData = async (formData) => {
          },
        })
        if (!res.ok) {
-         throw new Error('Failed to fetch data')
+        //  throw new Error('Failed to fetch data')
+         return res.json()
        }
    
        console.log(res);

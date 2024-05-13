@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useRef } from 'react'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -16,7 +18,7 @@ const OpenStreetMap = () => {
         <div className='row'>
           <div className='col'>
             <div className='container'>
-              <MapContainer center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+              <MapContainer center={center} zoom={ZOOM_LEVEL} ref={mapRef}  style={{height: "70dvh"}}>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

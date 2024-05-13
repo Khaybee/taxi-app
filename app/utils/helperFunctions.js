@@ -16,7 +16,7 @@ exports.authpassword = (salt, password) => {
 };
 
 exports.genToken = (userid) =>
-  jwt.sign({ userid: userid }, process.env.JWT_SECRET, {
+  jwt.sign({ id: userid }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
