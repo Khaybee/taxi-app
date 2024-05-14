@@ -42,22 +42,8 @@ const Footer = () => {
         <div className="footer-top pb-70">
           <div className="container">
             <div className="row justify-content-between">
-              {/* <div className="col-xl-4 col-lg-4 col-sm-6">
-                <div className="footer-widget mb-30">
-                  <div className="f-widget-title">
-                    <h2>About Us</h2>
-                  </div>
-                  <div className="footer-link">
-                    <p>
-                      Mauris non nisi semper, lacinia neque in, dapibus leo.
-                      Curabitur sagittis libero tincidunt tempor finibus. Mauris
-                      at dignissim ligula, nec tristique orci.
-                    </p>
-                  </div>
-                </div>
-              </div> */}
 
-              <div className="col-xl-2 col-lg-2 col-sm-6 mb-sm-5">
+              <div className="col-xl-2 col-lg-2 col-sm-3 mb-sm-5">
                 <div className="footer-widget mb-30">
                   <div className="f-widget-title">
                     <h2>Explore</h2>
@@ -71,14 +57,14 @@ const Footer = () => {
                         <a href="/about">About Us</a>
                       </li>
                       <li>
-                        <a href="service.html">Latest Blog</a>
+                        <a href="service.html">Contact Us</a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="col-xl-1 col-lg-2 col-sm-6 mb-sm-5">
+              <div className="col-xl-1 col-lg-2 col-sm-3 mb-sm-5">
                 <div className="footer-widget mb-30">
                   <div className="f-widget-title">
                     <h2>Follow Us</h2>
@@ -102,7 +88,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-xl-3 col-lg-3 col-sm-6">
+              <div className="col-xl-3 col-lg-3 col-sm-3">
                 <div className="footer-widget mb-30">
                   <div className="f-widget-title">
                     <h2>Contact Us</h2>
@@ -137,7 +123,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-lg-3 col-sm-6">
+              <div className="col-xl-3 col-lg-3 col-sm-3">
                 <div className="footer-widget mb-30">
                   <div className="f-widget-title">
                     <h2>Subscribe to Our Newsletter</h2>

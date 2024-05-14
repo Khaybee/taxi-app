@@ -32,7 +32,7 @@ const CallToAction = () => {
               data-animation="fadeInDown"
               data-delay=".2s"
             >
-              <a href="about.html" className="btn ss-btn smoth-scroll">
+              <a href="/auth" className="btn ss-btn smoth-scroll">
               Get Started Now <i className="fal fa-long-arrow-up"></i>
               </a>
             </div>

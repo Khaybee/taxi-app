@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Icon, Polyline } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 // import L from 'leaflet';
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
 
 // Define a custom marker icon
 const customMarkerIcon = new L.Icon({
@@ -21,7 +20,7 @@ export default function Map() {
      const driversPosition = [8.997045849923083, 7.475443279866642]
 
      const [myLocation, setMyLocation] = useState(position);
-     const [driversLocation, seDdriversLocation] = useState(driversPosition);
+     const [driversLocation, setdriversLocation] = useState(driversPosition);
      const [distance, setDistance] = useState(null);
      const [mapBounds, setMapBounds] = useState(null);
      const [estimatedTime, setEstimatedTime] = useState(null);

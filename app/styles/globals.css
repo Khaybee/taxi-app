@@ -251,8 +251,6 @@ li {
 }
 
 p {
-
-
   margin-bottom: 15px;
 }
 
@@ -382,6 +380,81 @@ label {
   color: #fff;
   border-color: #141b22;
 }
+
+
+/* lets tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy */
+
+
+
+.btn-3 {
+  border-radius: 50px;
+  /* color: #111111; */
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 0;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: unset;
+  touch-action: manipulation;
+  transition: all 0.3s ease 0s;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  text-transform: capitalize;
+  background: #141b22;
+  /* background: #FFC000; */
+  border: 1px solid #141b22;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.btn-3 i {
+  margin-left: 5px;
+  font-size: 18px;
+  transform: rotate(45deg);
+}
+
+.btn-3::before {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  /* background: #FFC000; */
+  background: #141b22;
+  top: -60PX;
+  left: 10px;
+  z-index: -1;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-3:hover::before {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0px;
+  content: "";
+  /* background: #141b22; */
+  background: #FFC000;
+
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn-3:hover {
+  color: #141b22;
+  border-color: #FFC000;
+}
+
+
+
+/* end of triallllllllllllllllllllll */
 
 
 .slider-btn:hover .btn-after {
@@ -1520,7 +1593,6 @@ label {
   margin-bottom: -5px;
 }
 
-.call-box strong {}
 
 .header-social a {
   color: #111;
@@ -2855,7 +2927,6 @@ section:hover .section-title h2::before {
   color: #FFC000;
 }
 
-.service-details-three {}
 
 .service-details-three .services-box {
   padding: 30px;
@@ -4191,8 +4262,6 @@ section:hover .section-title h2::before {
 }
 
 
-.step-img {}
-
 .step-box.step-box2 {
   padding-right: 50px;
   display: inherit;
@@ -4705,7 +4774,6 @@ section:hover .section-title h2::before {
 
 }
 
-.team-active .slick-dots li.slick-active button {}
 
 .team-active .slick-dots li.slick-active button::before {
   opacity: 1;
@@ -5128,7 +5196,7 @@ section:hover .section-title h2::before {
 }
 
 /* 12. project */
-.project h2 {}
+
 
 .single-project .project-info {
   position: absolute;
@@ -5331,7 +5399,6 @@ section:hover .section-title h2::before {
   width: 100%;
 }
 
-.counter-area {}
 
 .counter-area .single-counter {
   padding-bottom: 30px;
@@ -6103,6 +6170,22 @@ section:hover .section-title h2::before {
   background: #FFC000;
 }
 
+.cta-btn3 .btn {
+  color: #fff;
+  background: #111;
+  border: 1px solid #111;
+}
+
+.cta-btn3 .btn:hover {
+  border: 1px solid #fff;
+  color: #111;
+  background: #fff;
+}
+
+.cta-btn3 .btn::before {
+  background: #FFC000;
+}
+
 
 .cta-btn2 .btn {
   border: 1px solid #FFC000;
@@ -6184,8 +6267,7 @@ section:hover .section-title h2::before {
   color: #fff;
 }
 
-.testimonial-area h2,
-.testimonial-area p {}
+
 
 .ta-bg {
   height: 475px;
@@ -6851,7 +6933,7 @@ section:hover .section-title h2::before {
   background: no-repeat;
 }
 
-.faq-wrap .card:last-child {}
+
 
 .faq-wrap .card-header h2 button::after {
   position: absolute;
@@ -6903,7 +6985,6 @@ section:hover .section-title h2::before {
 
 }
 
-.home-blog-active .slick-dots li.slick-active button {}
 
 .home-blog-active .slick-dots li.slick-active button::before {
 
@@ -6954,7 +7035,6 @@ section:hover .section-title h2::before {
   border-radius: 4px;
 }
 
-.home-blog-active .slick-prev {}
 
 .home-blog-active .slick-arrow:hover,
 .home-blog-active2 .slick-arrow:hover {
@@ -7200,7 +7280,7 @@ section:hover .section-title h2::before {
   line-height: 30px;
 }
 
-.blog-area3 .blog-thumb2 .date-home {}
+
 
 .blog-area3 .blog-content2 {
   margin: 0 5px;
@@ -9643,11 +9723,8 @@ pre cite {
   min-height: 200px;
 }
 
-/* Here's the new CSS to add... */
 
-.admin-bar .menu-area {}
 
-.admin-bar .second-header {}
 
 .admin-bar .sticky-menu {
   top: 32px;
@@ -10968,8 +11045,6 @@ p.checkout-coupon input[type="text"] {
   color: #FFC000;
 }
 
-.services-categories li:hover a::before,
-.services-categories li.active a::before {}
 
 .sidebar.services-sidebar {
   position: sticky;
@@ -13621,7 +13696,7 @@ figcaption {
   margin-top: 30px;
 }
 
-.single-post .footer-widget {}
+
 
 figure.aligncenter img {
   margin-bottom: 15px;
@@ -13677,10 +13752,6 @@ figure img {
 .footer-widget .widget_categories a {
   color: #99A3AC;
 }
-
-.footer-widget .recentcomments a:hover,
-.footer-widget a:hover,
-.footer-widget .widget_categories a:hover {}
 
 .footer-widget .tag-cloud-link:hover {
   color: #fff;
@@ -13850,7 +13921,6 @@ blockquote footer {
   float: left;
 }
 
-.contact-info p {}
 
 .contact-info h5 {
   color: #141b22;
@@ -14383,7 +14453,6 @@ blockquote cite {
 }
 
 
-.wpding .footer-widget {}
 
 .wpding .footer-widget .widget_categories ul li a,
 .wpding .footer-widget .widget_archive ul li a {
@@ -16151,10 +16220,7 @@ blockquote cite {
     font-weight: 600;
   }
 
-  .mean-container .mean-nav ul li li a:first-child,
-  .menu .sub-menu li:last-child {
-    /*border: none;*/
-  }
+  
 
   .menu .sub-menu li,
   .menu .children li {
@@ -17270,10 +17336,7 @@ blockquote cite {
     font-weight: 600;
   }
 
-  .mean-container .mean-nav ul li li a:first-child,
-  .menu .sub-menu li:last-child {
-    /*border: none;*/
-  }
+
 
   .menu .sub-menu li,
   .menu .children li {
@@ -17684,8 +17747,6 @@ blockquote cite {
   .com-icon img {
     width: 100%;
   }
-
-  .counter-area {}
 
   .single-counter {
     margin-bottom: 30px;

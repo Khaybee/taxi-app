@@ -1,18 +1,17 @@
+"use client";
+import { useEffect } from "react";
+
 import Link from "next/link";
-
-import "../styles/input-address.css"
-// import 
+import ForgotPasswordForm from "./components/form";
 
 
+const ForgotPassword = () => {
 
-const ForgotPassword = (props) => {
-
-     return (
-          <>
-              <h1>HELLO</h1>
-              {/* <re */}
-          </>
-     );
+  return (
+    <>
+       <ForgotPasswordForm />
+    </>
+);
 };
 
 export default ForgotPassword;

@@ -33,7 +33,7 @@ export async function POST(req) {
     // create a salt using the hash function created in the helper file
     const salt = hash();
 
-    console.log(data);
+    // console.log(data);
 
     // create a variable that holds regex form of an email
     const validEmailRegex =
@@ -66,7 +66,7 @@ export async function POST(req) {
 
     checkUser = await pool.promise().query(checkEmailLogin, [email]);
 
-    console.log(checkUser);
+    // console.log(checkUser);
 
     // create the otp using the generateotp() method
     const otp = generateOTP();
@@ -77,7 +77,12 @@ export async function POST(req) {
 
     const result = await pool.promise().query(insertSignup, records);
 
-    const authToken = genToken(result.id);
+ console.log(result);
+ console.log(result[0].insertId);
+
+
+    const authToken = genToken(result[0].insertId);
+   
 
     const firstName = fullName.split(" ")[0];
 
@@ -104,6 +109,7 @@ export async function POST(req) {
       success: true,
       status: 200,
       message: "Account created successfully",
+      data: authToken
     });
   } catch (err) {
     console.log(checkUser);

@@ -7,12 +7,12 @@ import DisplayLocations from "../choose-option/components/show-locations"
 export default function BookPage() {
      return (
           <>
- <LoggedInNav />
-          <DisplayLocations />
-         
-          {/* <OpenStreetMap /> */}
-          
-          <BookedRide />
+               <LoggedInNav />
+               <DisplayLocations />
+
+               {/* <OpenStreetMap /> */}
+
+               <BookedRide />
 
           </>
      )

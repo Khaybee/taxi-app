@@ -16,6 +16,10 @@ const saveNewSubs = "insert into NewsLetter(email) values(?)"
 
 const subExist = "select * from NewsLetter where email=?"
 
+
+
+// const insertAdd = "Insert"
+
 module.exports = {
      insertSignup,
     checkEmailLogin,

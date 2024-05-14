@@ -68,7 +68,10 @@ export async function POST(req) {
          });
    
        // generate a token for the user using the genToken function created in the helper file
-       const authToken = genToken(checkUser[0].cus_id);
+       const authToken = genToken(checkUser[0].id);
+
+       console.log(checkUser[0].id);
+
    
        console.log("Login successful");
    

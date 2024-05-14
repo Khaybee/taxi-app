@@ -3,6 +3,9 @@ const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const OTP = require("otp-generator");
 
+const JWT_SECRET="0e8ca0a3e388e37ff59ec01db5325f01cdf97616d93c7c25dd30fc2053ff6c2e"
+const JWT_EXPIRES_IN="2d"
+
 exports.hash = () => crypto.randomBytes(64).toString("hex");
 // const hash = () => crypto.randomBytes(64).toString("hex");
 
@@ -15,9 +18,15 @@ exports.authpassword = (salt, password) => {
     .digest("hex");
 };
 
+exports.generateRandomPrice = async () => {
+  const basePrice = Math.floor(Math.random() * (9000 - 2500 + 1) + 2500); // Random price between 3500 and 8000
+  const roundedPrice = Math.round(basePrice / 100) * 100; // Round to the nearest 500
+  return roundedPrice;
+}
+
 exports.genToken = (userid) =>
-  jwt.sign({ id: userid }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+  jwt.sign({ id: userid }, JWT_SECRET, {
+    expiresIn: JWT_EXPIRES_IN,
   });
 
 // Function to generate otp

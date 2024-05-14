@@ -16,7 +16,7 @@ const NewsLetter = () => {
                     <div className=" text-center mt-4">
                          {/* <div className="btn-layer text-center"></div> */}
                          {/* <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">Primary</button> */}
-                         <input type="button" className="btn rounded-5 p-2 w-75" value="Login" />
+                         <input type="button" className="btn rounded-5 p-2 w-75" value="Subscribe" />
                     </div>
                </form>
           </>

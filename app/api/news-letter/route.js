@@ -12,13 +12,12 @@ import path from 'path'
 
 
      try {
-         
-
           const email = req.body.email;
 
-          const checkEmail = await runQuery(connection, subExist, [email])
+          // const checkEmail = await runQuery(connection, subExist, [email])
+          const [checkEmail] = await pool.promise().query(subExist, [email]);
 
-          if (checkEmail.length !== 0) {
+          if (checkEmail[0].length !== 0) {
 
                const htmlContent = loadTemplate('existingSubscriber');
                // const htmlContent = loadTemplate('welcomeNewsLetter');
@@ -41,7 +40,7 @@ import path from 'path'
                email
           ]);
 
-          const htmlContent = loadTemplate('welcomeNewsLetter');
+         
 
           const options = {
                from: '"Rapid Clean Laundry" <kharchiee@outlook.com>',

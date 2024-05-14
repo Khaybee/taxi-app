@@ -57,7 +57,7 @@ const Header = () => {
             <div className="container-fluid">
               <div className="second-menu">
                 <nav className={`navbar navbar-expand-md navbar-light bg-light ${isFixed ? 'fixed-nav' : ''}`}>
-                  <div className="container-fluid">
+                  <div className="container-fluid justify-content-end ms-md-5">
                     <Link href="/" className="navbar-brand header col-xl-2 d-none d-xl-block z-1">
                       <div className='logos'>
                         <Image

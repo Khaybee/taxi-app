@@ -24,16 +24,14 @@ const BrandsSection = () => {
                   data-animation="fadeInDown"
                   data-delay=".4s"
                 >
-                  Taxi service refers to the transportation of passengers from
-                  one location to another using a hired vehicle. It offers a
-                  convenient way to travel.
+                  Based on your choice, we bring you available drivers close to your current location
                 </p>
               </div>
 
 
               
               <div className="col-lg-8">
-                <div className="row justify-content-center align-items-center car-active">
+                <div className="row  align-items-center car-active">
                   {/* First Car */}
                   <div className="col-lg-3 col-md-6 col-sm-12" 
                   tabIndex={0}
@@ -58,16 +56,16 @@ const BrandsSection = () => {
                           />
                         </div>
                         <div className="text">
-                          <h3>Toyota Camry (1982)</h3>
+                          <h3>BOLT</h3>
                           <ul>
                             <li>
-                              <span>Base Rate:</span> $10
+                              <span>Car Model:</span> Toyota Camry
                             </li>
                             <li>
-                              <span>Per Mile/KM:</span> $20
+                              <span>Ride:</span> Comfort
                             </li>
                             <li>
-                              <span>Passengers:</span> 6
+                              <span>Passengers:</span> 4
                             </li>
                             <li>
                               <span>Rating:</span>
@@ -78,18 +76,12 @@ const BrandsSection = () => {
                                   alt="icon01"
                                   width={1000}
                                   height={1000}
-                                  style={{ width: "100%", height: "100%" }}
+                                  style={{ width: "80%", height: "80%" }}
                                 />
                               </strong>
                             </li>
                           </ul>
-                          <a
-                            href="single-service.html"
-                            className="readmore btn"
-                          >
-                            Book Now{" "}
-                            <i className="fa-sharp fa-light fa-arrow-up"></i>
-                          </a>
+               
                         </div>
                       </div>
                     </div>
@@ -117,16 +109,16 @@ const BrandsSection = () => {
                           />
                         </div>
                         <div className="text">
-                          <h3>Toyota Camry (1982)</h3>
+                          <h3>LYFT</h3>
                           <ul>
                             <li>
-                              <span>Base Rate:</span> $10
+                              <span>Car Model:</span> Hyundai Elantra
                             </li>
                             <li>
-                              <span>Per Mile/KM:</span> $20
+                              <span>Ride</span> Luxury
                             </li>
                             <li>
-                              <span>Passengers:</span> 6
+                              <span>Passengers:</span> 3
                             </li>
                             <li>
                               <span>Rating:</span>
@@ -137,18 +129,12 @@ const BrandsSection = () => {
                                   alt="icon01"
                                   width={1000}
                                   height={1000}
-                                  style={{ width: "100%", height: "100%" }}
+                                  style={{ width: "80%", height: "80%" }}
                                 />
                               </strong>
                             </li>
                           </ul>
-                          <a
-                            href="single-service.html"
-                            className="readmore btn"
-                          >
-                            Book Now{" "}
-                            <i className="fa-sharp fa-light fa-arrow-up"></i>
-                          </a>
+                        
                         </div>
                       </div>
                     </div>
@@ -176,16 +162,16 @@ const BrandsSection = () => {
                           />
                         </div>
                         <div className="text">
-                          <h3>Toyota Camry (1982)</h3>
+                          <h3>UBER</h3>
                           <ul>
                             <li>
-                              <span>Base Rate:</span> $10
+                              <span>Car Model:</span> Toyota Corolla
                             </li>
                             <li>
-                              <span>Per Mile/KM:</span> $20
+                              <span>Ride</span> Comfort
                             </li>
                             <li>
-                              <span>Passengers:</span> 6
+                              <span>Passengers:</span> 4
                             </li>
                             <li>
                               <span>Rating:</span>
@@ -201,13 +187,7 @@ const BrandsSection = () => {
                               </strong>
                             </li>
                           </ul>
-                          <a
-                            href="single-service.html"
-                            className="readmore btn"
-                          >
-                            Book Now{" "}
-                            <i className="fa-sharp fa-light fa-arrow-up"></i>
-                          </a>
+                   
                         </div>
                       </div>
                     </div>

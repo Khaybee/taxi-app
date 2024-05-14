@@ -5,11 +5,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import "../../styles/auth.css";
-import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
-import 'react-toastify/dist/ReactToastify.css';
+import { css } from '@emotion/react';
+import { RingLoader } from 'react-spinners';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
+
 
 
 const sendData = async (formData) => {
@@ -78,6 +79,26 @@ console.log(process.env.NEXT_PUBLIC_API_URL);
 
 const Form = () => {
 
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+  const overlayStyles = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const [passwordError, setPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
@@ -90,7 +111,20 @@ const Form = () => {
     password: '',
     confirmPassword: '',
   });
+  const [loginFormData, setLoginFormData] = useState({
+    email: '',
+    password: '',
+  });
 
+
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -132,7 +166,10 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const response = await LoginData(formData, rememberMe);
+      setIsLoading(true);
+      const response = await LoginData(loginFormData, rememberMe);
+
+      setIsLoading(false);
 
       if (response.success === true) {
         Swal.fire({
@@ -140,23 +177,24 @@ const Form = () => {
           text: "Welcome to SaveDrive",
           icon: "success",
           showConfirmButton: false,
-          timer: 3000
+          timer: 2000
         });
 
-        setFormData([])
+
+        setLoginFormData({
+          email: '',
+          password: '',
+        })
+
+        setRememberMe(false)
 
         router.push('/enter-address');
-        // toast.success(response.message, {
-        //   position: "top-center"
-        // });
-        // setTimeout(() => {
-        //   router.replace('/about');
-        // }, 1000);
 
       } else if (response.success === false) {
         if (response.message === "Please verify your email") {
+          setIsLoading(false);
           Swal.fire({
-            icon: "info",
+            icon: "warning",
             title: "One more step",
             text: response.message,
             showConfirmButton: false,
@@ -165,6 +203,7 @@ const Form = () => {
 
           router.replace('/otp');
         } else {
+          setIsLoading(false);
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -173,7 +212,7 @@ const Form = () => {
             timer: 2000
           });
         }
-        
+
 
         // toast.error(response.message, {
         //   position: "top-center"
@@ -186,6 +225,9 @@ const Form = () => {
         text: "Something went wrong!",
 
       });
+    } finally {
+      // Set loading state back to false after receiving the response
+      setIsLoading(false);
     }
   };
 
@@ -214,7 +256,12 @@ const Form = () => {
           showConfirmButton: false,
           timer: 3000
         });
-        setFormData([])
+        setFormData({
+          fullName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        })
 
 
         setTimeout(() => {
@@ -304,16 +351,18 @@ const Form = () => {
             </div>
             <div className="form-inner">
               <form className="login" >
+
                 <div className="field mt-4">
+
                   <input type="text"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange} placeholder="Email Address" required />
+                    value={loginFormData.email}
+                    onChange={handleLoginChange} placeholder="Email Address" required />
                 </div>
                 <div className="field  mt-4">
                   <input type="password" name="password"
-                    value={formData.password}
-                    onChange={handleChange} placeholder="Password" required />
+                    value={loginFormData.password}
+                    onChange={handleLoginChange} placeholder="Password" required />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center mt-2 pass-link">
@@ -336,6 +385,8 @@ const Form = () => {
                 <div className="signup-link mt-2">
                   Not a member? <Link href="" className="links-color">Signup now</Link>
                 </div>
+
+
               </form>
               <form className="signup" >
                 <div className="field">

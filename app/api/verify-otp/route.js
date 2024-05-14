@@ -15,7 +15,12 @@ export async function POST(req) {
 
           console.log(bearerToken);
 
-          const token = bearerToken.split(" ")[1]
+          
+          let token;
+
+          if (bearerToken){
+                token = bearerToken.split(" ")[1]
+          }
 
           console.log(token);
           if (!token) {
@@ -29,6 +34,7 @@ export async function POST(req) {
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
           console.log(decoded);
+          
           if (!decoded.id) {
                return NextResponse.json({
                     message: "Unauthorized: Invalid token",
