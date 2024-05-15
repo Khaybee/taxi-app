@@ -1,12 +1,65 @@
 "use client";
 import { useEffect, useState } from "react";
-import Map from "./map";
+import Map from "../../../booking-page/components/map";
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
+
+
+const createRide = async (formData) => {
+     try {
+          console.log(formData);
+          const authToken = getAuthToken()
+          const res = await fetch(`${apiUrl}/api/booked-page`, {
+               method: 'POST',
+               body: JSON.stringify(formData),
+               cache: 'no-store',
+               headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${authToken}`,
+
+               }
+          })
+          console.log(res);
+          if (!res.ok) {
+
+               throw new Error('Failed to fetch data')
+          }
+
+          const data = await res.json()
+
+          console.log(data);
+
+          return data
+     } catch (error) {
+
+          console.error('An error occurred: ', error)
+     }
+}
+
+
 
 export default function BookedRide({ params }) {
 
      const link = params.link
+
+
+     const priceString = localStorage.getItem('faresData')
+     const addressString = localStorage.getItem('valuesData')
+     const companyData = localStorage.getItem('companiesData')
+
+     let price;
+     let address;
+     let company;
+
+     if (priceString){
+          try{
+               price = JSON.parse(priceString)
+               address = JSON.parse(addressString)
+               company = JSON.parse(companyData)
+          } catch (error) {
+               console.error('Error parsing JSON:', error);
+          }
+     }
 
 
      const formData = {
@@ -122,6 +175,14 @@ export default function BookedRide({ params }) {
                                              {/* <span className="icon" aria-hidden="true">&#xf08b;</span> */}
                                         </div>
                                         
+                                   </div>
+
+                                   <hr className="border border-1 border-black mt-50"></hr>
+                                   <div className=" d-flex fs-4">
+                                   <div className="  fw-medium col-lg-3">
+                                             Price:
+                                        </div>
+                                        <div className=" col-lg-5 col-sm-2 d-flex"> <img src="/images/icon/naira-icon.png" width="30px" height="30px" className="" /> <span>5000</span></div>
                                    </div>
                               </div>
                          </div>

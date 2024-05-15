@@ -87,7 +87,6 @@ export async function POST(req) {
 
           const [companies] = await pool.promise().query("SELECT * FROM company");
 
-
           let fares = [];
 
           for (const company of companies) {
@@ -98,6 +97,12 @@ export async function POST(req) {
 
 
           fares.sort((a, b) => a - b);
+
+          // const companiesWithPrice = getDrivers.map(driver => ({
+          //      ...driver,
+          //      waitTime: getRandomMinutes(),
+          //      price: price
+          // }));
 
 
           // console.log(fares);

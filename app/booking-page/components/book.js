@@ -110,7 +110,16 @@ export default function BookedRide() {
                                              <label className="form-check-label fw-medium" htmlFor="payWithBankTransfer">Pay with Bank Transfer</label>
                                              {/* <span className="icon" aria-hidden="true">&#xf08b;</span> */}
                                         </div>
+
                                         
+                                        
+                                   </div>
+                                   <hr className="border border-1 border-black mt-50"></hr>
+                                   <div className=" d-flex fs-4">
+                                   <div className="  fw-medium col-lg-3">
+                                             Price:
+                                        </div>
+                                        <div className=" col-lg-5 col-sm-2 d-flex"> <img src="/images/icon/naira-icon.png" width="30px" height="30px" className="" /> <span>5000</span></div>
                                    </div>
                               </div>
                          </div>
