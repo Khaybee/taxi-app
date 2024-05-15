@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Map from "./map";
+import Map from "../[driver]/map";
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
 
@@ -15,7 +15,7 @@ export default function BookedRide() {
                     <div className=" row  mb-100">
                          <div className=" bg-white shadow-lg col-lg-8 rounded-3 px-0">
                               <div>
-                                   {/* <Map /> */}
+                                   <Map />
                               </div>
                               <div className=" row mt-20 p-5" >
                                    <div className=" col-lg-3"><img src="/images/team/team01.png" width="100%" className=" rounded-4" /></div>

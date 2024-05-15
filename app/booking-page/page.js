@@ -1,6 +1,6 @@
 import OpenStreetMap from "../components/OpenStreetMap";
 import LoggedInNav from "../components/loggedInNav";
-import Map from "./components/map"
+import Map from "./[driver]/map"
 import BookedRide from "./components/book"
 import DisplayLocations from "../choose-option/components/show-locations"
 

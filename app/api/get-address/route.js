@@ -7,17 +7,12 @@ import jwt from 'jsonwebtoken'
 import getLongLat from '../utils/geocoder';
 
 
-
-
 export async function POST(req) {
-     // export async function POST(req) {
 
      try {
 
           const headersList = headers()
           const bearerToken = headersList.get('authorization')
-
-          // console.log(bearerToken);
 
           let token;
 
@@ -36,7 +31,6 @@ export async function POST(req) {
 
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-          console.log(decoded);
           if (!decoded.id) {
                return NextResponse.json({
                     message: "Unauthorized: Invalid token",
@@ -47,9 +41,6 @@ export async function POST(req) {
 
           const [checkUser] = await pool.promise().query(checkotp, [decoded.id]);
 
-
-          // console.log(checkUser);
-
           if (!checkUser || checkUser === 0) return NextResponse.json({ message: "Unauthorized user", status: 401, success: false })
 
           const data = await req.json();
@@ -59,18 +50,9 @@ export async function POST(req) {
 
           if (!pickup || !destination) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
 
-
-          // console.log(pickup);
-
           const pickupResult = await getLongLat(pickup)
 
-          // console.log(pickupResult);
-
           const destResult = await getLongLat(destination)
-
-
-
-          // console.log(destResult);
 
           if (!pickupResult || !destResult) {
                console.log("Address not found");
@@ -93,15 +75,19 @@ export async function POST(req) {
                const fare = await generateRandomPrice();
 
                fares.push(fare)
+
+
           }
 
 
           fares.sort((a, b) => a - b);
 
-          // const companiesWithPrice = getDrivers.map(driver => ({
+
+          
+
+          // const companiesWithPrice = companies.map(driver => ({
           //      ...driver,
-          //      waitTime: getRandomMinutes(),
-          //      price: price
+          //      price: 
           // }));
 
 
