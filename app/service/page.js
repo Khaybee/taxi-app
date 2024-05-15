@@ -62,10 +62,7 @@ const Services = () => {
               Direct Booking
             </h1>
             <p className="lead fs-4 text-black">
-              Once you've found the ideal ride, you can book it directly through
-              our platform. No need to switch apps or websites—everything is
-              done in one place. Our seamless booking process ensures you can
-              secure your ride quickly and conveniently.
+              {"Once you've found the ideal ride, you can book it directly through our platform. No need to switch apps or websites—everything is done in one place. Our seamless booking process ensures you can secure your ride quickly and conveniently."}
             </p>
           </div>
           <div className="col-10 col-sm-8 col-lg-5">

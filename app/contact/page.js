@@ -51,10 +51,7 @@ const Contact = () => {
               Leave Us a Message
             </h1>
             <p className="col-lg-12 fs-5">
-              We'd love to hear from you! If you have questions, suggestions, or
-              just want to say hello, feel free to reach out. You can contact us
-              via email or phone, on social media or simply type a message over here. We're here
-              to help and look forward to hearing from you.
+             {" We'd love to hear from you! If you have questions, suggestions, or just want to say hello, feel free to reach out. You can contact us via email or phone, on social media or simply type a message over here. We're here to help and look forward to hearing from you."}
             </p>
             
           </div>

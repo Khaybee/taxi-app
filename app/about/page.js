@@ -63,11 +63,7 @@ const About = () => {
           <div class="col d-flex flex-column align-items-start gap-2">
             <h2 class="fw-bold text-body-emphasis ">Our Team</h2>
             <p class="text-body-secondary fs-4">
-              Our team is a diverse group of professionals with backgrounds in
-              technology, transportation, customer service, and more. We're
-              united by a passion for making transportation easier and more
-              accessible. Our collaborative approach and commitment to
-              excellence drive us to deliver outstanding results.
+              {"Our team is a diverse group of professionals with backgrounds in technology, transportation, customer service, and more. We're united by a passion for making transportation easier and moreaccessible. Our collaborative approach and commitment to excellence drive us to deliver outstanding results."}
             </p>
           </div>
 

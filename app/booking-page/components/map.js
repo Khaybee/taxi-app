@@ -85,7 +85,7 @@ export default function Map() {
                     </Marker>
 
                     <Marker position={driversLocation} icon={customMarkerIcon}>
-                         <Popup autoClose={false}>Driver's Location</Popup>
+                         <Popup autoClose={false}>{"Driver's Location"}</Popup>
                     </Marker>
                     {distance && (
 

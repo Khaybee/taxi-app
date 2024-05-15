@@ -221,7 +221,7 @@ const InputOTP = () => {
                                                   <button className=' rounded-2 py-2 px-3 border border-0 submitHover' style={{ backgroundColor: "#FFC000" }} onClick={handleSubmit}>Verify</button>
                                              </div>
                                              <div className='' style={{ fontSize: "14px" }}>
-                                                  <span >Didn't receive code? </span> <span className=' ' style={{ color: "#fcc000", cursor: "pointer", }} onClick={handleResendOTP}>Resend</span>
+                                                  <span >{"Didn't receive code?"} </span> <span className=' ' style={{ color: "#fcc000", cursor: "pointer", }} onClick={handleResendOTP}>Resend</span>
                                              </div>
                                              <div></div>
                                         </div>

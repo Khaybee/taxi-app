@@ -120,7 +120,7 @@ const HowItWorks = () => {
                     <h3>Book Your Ride</h3>
                   </div>
                   <p className=" fw-medium mt-25">
-                  Choose the best option for you and book your ride with just a few clicks. We'll handle the rest.
+                  {"Choose the best option for you and book your ride with just a few clicks. We'll handle the rest."}
                   </p>
                 </div>
               </div>
