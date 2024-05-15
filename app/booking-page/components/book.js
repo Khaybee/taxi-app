@@ -6,42 +6,7 @@ import Swal from 'sweetalert2'
 
 export default function BookedRide() {
      const router = useRouter();
-
-     const [isCancelled, setIsCancelled] = useState(false)
-
-    const handleCancelRide = async () => {
-          try {
-               setIsCancelled(true)
-               const { value: fruit } = await Swal.fire({
-                    title: "Why do you want to cancel?",
-                    input: "select",
-                    inputOptions: {
-                      1: "Driver asked to cancel",
-                      2: "Too long wait time",
-                      3: "No longer interested",
-                      4: "Booked by accident"
-                    },
-                    inputPlaceholder: "Select a reason",
-                    showCancelButton: true,
-                    inputValidator: (value) => {
-                      return new Promise((resolve) => {
-                        if (value !== null) {
-                          resolve();
-                        } else {
-                          resolve("Ride cancelled)");
-                        }
-                      });
-                    }
-                  });
-                  if (fruit) {
-                    Swal.fire(`Ride cancelled`);
-                  }
-                  router.replace('/enter-address')
-          } catch (error){
-               console.error("something went wrong somewhwere", error)
-          }
-
-     }
+  
      return (
           <>
 
@@ -50,7 +15,7 @@ export default function BookedRide() {
                     <div className=" row  mb-100">
                          <div className=" bg-white shadow-lg col-lg-8 rounded-3 px-0">
                               <div>
-                                   <Map />
+                                   {/* <Map /> */}
                               </div>
                               <div className=" row mt-20 p-5" >
                                    <div className=" col-lg-3"><img src="/images/team/team01.png" width="100%" className=" rounded-4" /></div>
@@ -75,7 +40,7 @@ export default function BookedRide() {
                                                        </div>
 
 
-                                                       <div style={{ fontSize: "15px" }}><div className="btn ss-btn smoth-scroll z-0 px-2 py-3" style={{ fontSize: "14px" }} onClick={handleCancelRide}>
+                                                       <div style={{ fontSize: "15px" }}><div className="btn ss-btn smoth-scroll z-0 px-2 py-3" style={{ fontSize: "14px" }} >
                                                             Cancel ride
                                                        </div></div>
                                                   </div>

@@ -1,9 +1,10 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Icon, Polyline } from 'react-leaflet'
+import dynamic from 'next/dynamic';
+// import { MapContainer, TileLayer, Marker, Popup, Icon, Polyline } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-// import L from 'leaflet';
+import L from 'leaflet';
 
 // Define a custom marker icon
 const customMarkerIcon = new L.Icon({
@@ -12,6 +13,16 @@ const customMarkerIcon = new L.Icon({
      iconAnchor: [12, 41],
      popupAnchor: [1, -34],
 });
+
+
+const MapContainer = dynamic(() => import('react-leaflet').then((module) => module.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then((module) => module.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then((module) => module.Marker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((module) => module.Popup), { ssr: false });
+const Polyline = dynamic(() => import('react-leaflet').then((module) => module.Polyline), { ssr: false });
+
+
+
 export default function Map() {
 
 
@@ -64,7 +75,7 @@ export default function Map() {
 
                <MapContainer className=' w-100 rounded-top-3 z-0' center={position} bounds={mapBounds} zoom={15} scrollWheelZoom={false} style={{ height: "70dvh" }}>
                     <TileLayer
-                         attribution=' '
+                         attribution=''
                          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <Marker position={myLocation} icon={customMarkerIcon}>
