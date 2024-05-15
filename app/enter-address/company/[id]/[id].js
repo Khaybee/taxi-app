@@ -2,10 +2,10 @@
 import { useRouter } from 'next/navigation';
 import { useAppContext } from './context';
 import { useContext } from 'react';
-import getAuthToken from "../../utils/getAuthToken"
+import getAuthToken from "../utils/getAuthToken"
 
 
-const getDrivers = (props) => {
+const getDrivers = ({params}) => {
 
      const { state, dispatch } = useContext(useAppContext);
      const router = useRouter();

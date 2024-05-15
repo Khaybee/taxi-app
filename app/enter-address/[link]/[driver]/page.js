@@ -4,44 +4,55 @@ import Map from "./map";
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
 
-export default function BookedRide() {
+export default function BookedRide({ params }) {
+
+     const link = params.link
+
+
+     const formData = {
+          id: link,
+        
+    }
+
      const router = useRouter();
+
+
 
      const [isCancelled, setIsCancelled] = useState(false)
 
-    const handleCancelRide = async () => {
-          try {
-               setIsCancelled(true)
-               const { value: fruit } = await Swal.fire({
-                    title: "Why do you want to cancel?",
-                    input: "select",
-                    inputOptions: {
-                      1: "Driver asked to cancel",
-                      2: "Too long wait time",
-                      3: "No longer interested",
-                      4: "Booked by accident"
-                    },
-                    inputPlaceholder: "Select a reason",
-                    showCancelButton: true,
-                    inputValidator: (value) => {
-                      return new Promise((resolve) => {
-                        if (value !== null) {
-                          resolve();
-                        } else {
-                          resolve("Ride cancelled)");
-                        }
-                      });
-                    }
-                  });
-                  if (fruit) {
-                    Swal.fire(`Ride cancelled`);
-                  }
-                  router.replace('/enter-address')
-          } catch (error){
-               console.error("something went wrong somewhwere", error)
-          }
+//     const handleCancelRide = async () => {
+//           try {
+//                setIsCancelled(true)
+//                const { value: fruit } = await Swal.fire({
+//                     title: "Why do you want to cancel?",
+//                     input: "select",
+//                     inputOptions: {
+//                       1: "Driver asked to cancel",
+//                       2: "Too long wait time",
+//                       3: "No longer interested",
+//                       4: "Booked by accident"
+//                     },
+//                     inputPlaceholder: "Select a reason",
+//                     showCancelButton: true,
+//                     inputValidator: (value) => {
+//                       return new Promise((resolve) => {
+//                         if (value !== null) {
+//                           resolve();
+//                         } else {
+//                           resolve("Ride cancelled)");
+//                         }
+//                       });
+//                     }
+//                   });
+//                   if (fruit) {
+//                     Swal.fire(`Ride cancelled`);
+//                   }
+//                   router.replace('/enter-address')
+//           } catch (error){
+//                console.error("something went wrong somewhwere", error)
+//           }
 
-     }
+//      }
      return (
           <>
 

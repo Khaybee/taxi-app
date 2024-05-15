@@ -6,13 +6,15 @@ import InputAddress from "./component/inputAdd";
 
 import LoggedInNav from "../components/loggedInNav";
 
-const AddressPage = () => {
+const AddressPage = (props) => {
+
+ 
 
   return (
     <>
          <LoggedInNav />
 
-        <InputAddress />
+        <InputAddress  />
     </>
 );
 };

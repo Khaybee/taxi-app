@@ -9,6 +9,7 @@ import "../../styles/forgot_pwd.css"
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import 'react-toastify/dist/ReactToastify.css';
+import InputOTP from "./otp-forgotPass";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
@@ -31,11 +32,11 @@ const sendForgotData = async (formData) => {
 
     const data = await res.json()
 
-    // const authToken = data.data
+    const authToken = data.data
 
     localStorage.setItem('email', formData.email);
+    localStorage.setItem('authToken', authToken);
 
-    // sessionStorage.setItem('email', formData.email);
     console.log(data);
     return data;
   } catch (error) {
@@ -75,10 +76,10 @@ const ForgotPasswordForm = () => {
   const router = useRouter();
 
   const [resetFormData, setresetFormData] = useState({
-
     password: '',
-
   });
+
+
   const [ForgotFormData, setForgotFormData] = useState({
     email: '',
   });
@@ -112,7 +113,18 @@ const ForgotPasswordForm = () => {
   };
 
 
+    // for modal otp page
+    const [visible, setVisible] = useState(false);
 
+    function makeVisible() {
+      setVisible(true);
+    }
+  
+    const handleFormSubmit = (formData) => {
+      const result = sendData(formData); 
+  
+      return result;
+    };
 
   const handleForgotSubmit = async (e) => {
     e.preventDefault();
@@ -130,8 +142,10 @@ const ForgotPasswordForm = () => {
         });
 
         setForgotFormData([])
-        // setLoginFormData([])
-        router.replace('/otp');
+     
+        makeVisible()
+
+        // router.replace('/otp');
 
       } else if (response.success === false) {
         console.log(response.message);
@@ -202,6 +216,7 @@ const ForgotPasswordForm = () => {
 
 
 
+
   useEffect(() => {
     // Add the JavaScript interactivity
     const loginText = document.querySelector(".title-text .login");
@@ -224,6 +239,12 @@ const ForgotPasswordForm = () => {
 
   return (
     <>
+
+{visible && ( <div className="form-body">
+      <InputOTP />
+    </div>
+      
+    )}  
       <div className="auth-body">
         <Head>
           <title>Auth Pages</title>
@@ -294,6 +315,8 @@ const ForgotPasswordForm = () => {
           </div>
         </div>
       </div>
+
+   
     </>
   );
 }

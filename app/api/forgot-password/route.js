@@ -32,8 +32,13 @@ export async function POST(req) {
           if (!checkEmail) return NextResponse.json({ message: "Invalid Email", status: 401, success: false,})
         
 
+               console.log(checkEmail);
           const result = await pool.promise().query(updateOTP, [newOtp, email]);
           // use the function created for running a query to insert the credentials gotten from the request into the database
+
+          console.log(result);
+
+          const authToken = genToken(checkEmail[0].id);
 
           console.log(checkEmail);
           const firstName = checkEmail[0].fullName.split(' ')[0];
@@ -63,6 +68,7 @@ export async function POST(req) {
                success: true,
                status: 200,
                message: "Check your email for verification pin.",
+               data: authToken
           });
      } catch (err) {
           return NextResponse.json({

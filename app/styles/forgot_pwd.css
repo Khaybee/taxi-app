@@ -24,6 +24,21 @@
      background: #fff;
      /* background: rgba(0, 0, 0, 0.9); */
 }
+
+
+/* puts the  modal overlay */
+.form-body {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,.5);
+}
+
 ::selection{
   background: #1a75ff;
   color: #fff;

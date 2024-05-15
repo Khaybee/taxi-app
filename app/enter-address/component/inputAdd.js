@@ -93,7 +93,7 @@ const InputAddress = (props) => {
      const handleGetOptionsClick = async () => {
           try {
 
-               console.log(pickup);
+               
                const response = await getCompanies(pickup, destination);
                console.log(response);
 
@@ -228,7 +228,7 @@ const InputAddress = (props) => {
                                                   <div className="col-lg-3 text-center my-2 py-4 px-3 " style={{ backgroundColor: '#fffaec', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center' }}>
 
                                                        <p className=" mb-1 fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="col" /><span>{faresData[index]}</span></p>
-                                                       <Link href={`/company/${company.id}`} key={company.id}>
+                                                       <Link href={`/enter-address/${company.id}`} key={company.id}>
                                                        <div className="btn-3 ss-btn smoth-scroll  z-0  ">
                                                             See Drivers
                                                        </div>
