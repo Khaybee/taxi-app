@@ -8,7 +8,7 @@ const CallToAction = () => {
     return (
         <>
            <section
-      className="cta-area cta-bg pt-60 pb-60"
+      className="cta-area cta-bg pt-60 pb-60 mb-110"
       style={{
         backgroundImage: 'url(/images/bg/cta-bg.png)',
         backgroundSize: 'cover',

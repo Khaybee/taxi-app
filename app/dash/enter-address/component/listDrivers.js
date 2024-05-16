@@ -55,7 +55,7 @@ const ListDrivers = props => {
                          {companiesDrivers.map(drivers => (
                               <div key={drivers.id} className=" bg-white rounded-4 d-flex mb-50 shadow-lg">
                                    <div className=" col-lg-2 col-sm-2 p-3">
-                                        <img src="/images/team/team01.png" width="150px" className=" rounded-4" />
+                                        <img src={`/images/team/${drivers.photo}`} width="150px" className=" rounded-4" />
                                    </div>
 
                                    <div className="  col-lg-4 d-flex col-sm-4 flex-column justify-content-between py-4">

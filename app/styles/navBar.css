@@ -62,6 +62,7 @@ header {
 
 .nav-logged-li:hover, li:hover,  .drop-li:hover {
      color: #FFC000 !important;
+     cursor: pointer;
 }
 
 
