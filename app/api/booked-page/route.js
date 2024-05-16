@@ -17,52 +17,15 @@ export async function POST(req) {
           const data = await req.json();
 
           // get the users credential from the request
-          const { pickup, destination } = data;
+          const { pickup, destination, drivers_id,  } = data;
 
-          if (!pickup || !destination) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
-
-
-          // console.log(pickup);
-
-          const pickupResult = await getLongLat(pickup)
-
-          // console.log(pickupResult);
-
-          const destResult = await getLongLat(destination)
+          if (!pickup || !destination || !drivers_id) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
 
 
 
-          // console.log(destResult);
-
-          if (!pickupResult || !destResult) {
-               console.log("Address not found");
-               return NextResponse.json({
-                    message: " Invalid address",
-                    status: 400,
-                    success: false,
-               });
-          }
-
-          const values = [pickupResult, destResult]
-
-          // console.log(values);
-
-          const [companies] = await pool.promise().query("SELECT * FROM company");
+          const [drivers] = await pool.promise().query("SELECT * FROM driver where id = ?");
 
 
-          let fares = [];
-
-          for (const company of companies) {
-               const fare = await generateRandomPrice();
-
-               fares.push(fare)
-          }
-
-
-          fares.sort((a, b) => a - b);
-
-
-          // console.log(fares);
 
           return NextResponse.json({
                success: true,

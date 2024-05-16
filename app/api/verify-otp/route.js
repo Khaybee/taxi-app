@@ -11,7 +11,6 @@ export async function POST(req) {
 
           // get the users credential from the request
           const { otp, email } = data;
-          console.log(data)
 
           if (!otp || !email)
                return NextResponse.json({

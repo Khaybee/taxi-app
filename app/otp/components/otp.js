@@ -4,42 +4,43 @@ import "../../styles/auth.css";
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation';
 import getAuthToken from "../../utils/getAuthToken"
+import { signIn } from 'next-auth/react';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
-const resendOTPEmail = async () => {
-     try {
-          const email = sessionStorage.getItem('email');
-          console.log(email);
-          const res = await fetch(`${apiUrl}/api/resend-otp`, {
-               method: 'POST',
+// const resendOTPEmail = async () => {
+//      try {
+//           const email = sessionStorage.getItem('email');
+//           console.log(email);
+//           const res = await fetch(`${apiUrl}/api/resend-otp`, {
+//                method: 'POST',
 
-               cache: 'no-store',
-               headers: {
-                    "Content-Type": "application/json",
+//                cache: 'no-store',
+//                headers: {
+//                     "Content-Type": "application/json",
 
-               },
-               body: JSON.stringify({ email })
-          })
-          if (!res.ok) {
+//                },
+//                body: JSON.stringify({ email })
+//           })
+//           if (!res.ok) {
 
-               throw new Error('Failed to fetch data')
-          }
+//                throw new Error('Failed to fetch data')
+//           }
 
-          const data = await res.json()
+//           const data = await res.json()
 
 
-          const authToken = data.data
+//           const authToken = data.data
 
-          localStorage.setItem('authToken', authToken);
+//           localStorage.setItem('authToken', authToken);
 
-          const check = localStorage.getItem('authToken');
-          console.log(check);
+//           const check = localStorage.getItem('authToken');
+//           console.log(check);
 
-          return data;
-     } catch (error) {
-          console.error('An error occurred:', error);
-     }
-}
+//           return data;
+//      } catch (error) {
+//           console.error('An error occurred:', error);
+//      }
+// }
 
 
 const InputOTP = props => {
@@ -83,24 +84,40 @@ const InputOTP = props => {
      const handleResendOTP = async (e) => {
           e.preventDefault()
           setIsClicked(true)
+          const formData = {
+               email: email
+          }
 
           try {
-               const response = await resendOTPEmail()
-               if (response.success === true) {
+              
+               console.log(formData);
+               const res = await fetch(`${apiUrl}/api/resend-otp`, {
+                    method: 'POST',
+     
+                    cache: 'no-store',
+                    headers: {
+                         "Content-Type": "application/json",
+     
+                    },
+                    body: JSON.stringify({ formData })
+               })
+               const data = await res.json()
+        
+               if (data.success === true) {
 
                     Swal.fire({
-                         title: response.message,
+                         title: data.message,
                          text: "Check your email",
                          icon: "success",
                          showConfirmButton: false,
                          timer: 2500
                     });
 
-               } else if (response.success === false) {
+               } else if (data.success === false) {
                     Swal.fire({
                          icon: "error",
                          title: "Oops...",
-                         text: response.message,
+                         text: data.message,
                          showConfirmButton: false,
                          timer: 3000
                     });
@@ -133,17 +150,30 @@ const InputOTP = props => {
                const data = await res.json()
 
                if (data.success === true) {
+                    try {
+                         const result = await signIn('credentials', {
+                              redirect: false,
+                              email: email,
+                         });
+                         if (result.error) {
+                              console.error('Error signing in:', result.error);
+                         } else {
+                              Swal.fire({
+                                   title: data.message,
+                                   text: "Welcome to SaveDrive",
+                                   icon: "success",
+                                   showConfirmButton: false,
+                                   timer: 2000
+                              });
+                              setTimeout(() => {
+                                   router.replace('/dash/enter-address');
+                              }, 1000);
+                         }
 
-                    Swal.fire({
-                         title: data.message,
-                         text: "Welcome to SaveDrive",
-                         icon: "success",
-                         showConfirmButton: false,
-                         timer: 2000
-                    });
-                    setTimeout(() => {
-                         router.replace('dash/enter-address');
-                    }, 1000);
+                    } catch (error) {
+                         console.error('Error signing in:', error);
+                    }
+
                } else if (data.success === false) {
                     Swal.fire({
                          icon: "error",

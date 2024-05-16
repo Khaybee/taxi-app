@@ -19,7 +19,6 @@ const Home = () => {
         <HowItWorks />
         <BrandsSection />
         <CallToAction />
-        <StepSection />
       </main>
       <Footer />
     </>
