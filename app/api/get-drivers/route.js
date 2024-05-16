@@ -7,53 +7,12 @@ import jwt from 'jsonwebtoken'
 import getAddress from '../utils/reverse-geocoder'
 
 
-
 export async function POST(req) {
      // export async function POST(req) {
 
      try {
 
-          const headersList = headers()
-          const bearerToken = headersList.get('authorization')
-
-          // console.log(bearerToken);
-
-          let token;
-
-          if (bearerToken) {
-               token = bearerToken.split(" ")[1]
-          }
-
-          // console.log(token);
-          if (!token) {
-               return NextResponse.json({
-                    message: "Unauthorized: Missing token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-          // console.log(decoded);
-          if (!decoded.id) {
-               return NextResponse.json({
-                    message: "Unauthorized: Invalid token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          
-          const [checkUser] = await pool.promise().query(checkotp, [decoded.id]);
-
-
-          // console.log(checkUser);
-
-          if (!checkUser || checkUser === 0) return NextResponse.json({ message: "Unauthorized user", status: 401, success: false })
-
-          const data = await req.json();
-
+          const data = await req.json()
           // get the users credential from the request
           const { id, price, address } = data;
 
@@ -63,13 +22,10 @@ export async function POST(req) {
                // console.log(address[0].formatted.split(",")[0]);
                // console.log(address[1].formatted.split(",")[0]);
 
-               const addy = {
-                    pickupFrom: address[0].formatted.split(",")[0],
-                    dropAt: address[1].formatted.split(",")[0]
-               }
-
-               console.log(addy);
-
+               // const addy = {
+               //      pickupFrom: address[0].formatted.split(",")[0],
+               //      dropAt: address[1].formatted.split(",")[0]
+               // }
 
          const query = "select * from driver where company = ?"
 
@@ -91,7 +47,7 @@ export async function POST(req) {
                success: true,
                status: 200,
                message: "Drivers gotten",
-               data: {driversWithRawaittndomTime, addy}
+               data: {driversWithRawaittndomTime}
           });
      } catch (err) {
           return NextResponse.json({

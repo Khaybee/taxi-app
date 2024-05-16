@@ -1,36 +1,29 @@
-import "../../styles/loggedHero.css";
-import Swal from 'sweetalert2'
-import getAuthToken from "../../utils/getAuthToken"
-import ListDrivers from "../component/listDrivers"
+import "../../../styles/loggedHero.css";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
-
+import ListDrivers from '../component/listDrivers'
+import { headers } from "next/headers";
 
 
 const AvailableDrivers = async ({ params }) => {
-     const link = params.link
+     const id = params.link
+     const formData = { id }
 
-     const formData = { link }
-
+     let drivers
      try {
-
-          const authToken = getAuthToken()
+          const headersInstance = headers()
+          const authorization = headersInstance.get('authorization')
           const res = await fetch(`${apiUrl}/api/get-drivers`, {
                method: 'POST',
                body: JSON.stringify(formData),
                cache: 'no-store',
-               headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${authToken}`,
-               }
+               headers: { authorization }
+
           })
-
           if (!res.ok) {
-
                throw new Error('Failed to fetch data')
           }
-
           const data = await res.json()
-          console.log(data);
+          drivers = data.data.driversWithRawaittndomTime
      } catch (error) {
 
           console.log("Something went wrong:", error);
@@ -38,7 +31,7 @@ const AvailableDrivers = async ({ params }) => {
      
      return (
           <>
-               {/* <ListDrivers /> */}
+               <ListDrivers data={drivers} />
           </>
      );
 };

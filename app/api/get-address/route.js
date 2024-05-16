@@ -1,48 +1,12 @@
 import { pool } from "../../../lib/db";
 import { NextResponse } from "next/server";
-import { updateVerify, checkotp, checkEmailLogin, } from "../utils/query";
 import { genToken, generateRandomPrice } from "../../utils/helperFunctions";
-import { headers } from 'next/headers'
-import jwt from 'jsonwebtoken'
 import getLongLat from '../utils/geocoder';
 
 
 export async function POST(req) {
 
      try {
-
-          const headersList = headers()
-          const bearerToken = headersList.get('authorization')
-
-          let token;
-
-          if (bearerToken) {
-               token = bearerToken.split(" ")[1]
-          }
-
-          // console.log(token);
-          if (!token) {
-               return NextResponse.json({
-                    message: "Unauthorized: Missing token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-          if (!decoded.id) {
-               return NextResponse.json({
-                    message: "Unauthorized: Invalid token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          const [checkUser] = await pool.promise().query(checkotp, [decoded.id]);
-
-          if (!checkUser || checkUser === 0) return NextResponse.json({ message: "Unauthorized user", status: 401, success: false })
-
           const data = await req.json();
 
           // get the users credential from the request
@@ -51,7 +15,6 @@ export async function POST(req) {
           if (!pickup || !destination) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
 
           const pickupResult = await getLongLat(pickup)
-
           const destResult = await getLongLat(destination)
 
           if (!pickupResult || !destResult) {
@@ -78,12 +41,7 @@ export async function POST(req) {
 
 
           }
-
-
           fares.sort((a, b) => a - b);
-
-
-          
 
           // const companiesWithPrice = companies.map(driver => ({
           //      ...driver,

@@ -4,11 +4,11 @@ const insertSignup = `insert into user( fullName, email, password, salt, otp) va
 
 const checkEmailLogin = `select * from user where email = ?`;
 
-const checkotp = `select * from user where id = ?`;
+const checkotp = `select * from user where email = ?`;
 
 const updateLogin = "update user set password = ?, salt = ? where email = ?";
 
-const updateVerify = "update user set isVerified = ?, otp = NULL where id = ?";
+const updateVerify = "update user set isVerified = ?, otp = 0 where email = ?";
 
 const updateOTP = "update user set otp = ? where email = ?"
 

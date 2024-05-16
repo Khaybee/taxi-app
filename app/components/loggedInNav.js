@@ -5,8 +5,14 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 const LoggedInNav = () => {
+
+  const logout = () => {
+    signOut()
+  }
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [activeMenuItem, setActiveMenuItem] = useState("");
@@ -27,18 +33,10 @@ const LoggedInNav = () => {
     setIsFixed(isScrolled);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <header
-        className={`px-3 border-bottom ${isFixed ? "fixed-nav" : ""}`}
+        className={`px-3 border-bottom fixed-nav mb-3`}
       >
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
@@ -114,7 +112,7 @@ const LoggedInNav = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item fs-5 drop-li" href="#">
+                  <a className="dropdown-item fs-5 drop-li" onClick={logout}>
                     Sign out
                   </a>
                 </li>

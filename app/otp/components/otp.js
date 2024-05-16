@@ -1,6 +1,4 @@
 "use client"
-
-// import { useEffect, useState } from "react";
 import React, { useState, useRef, useEffect } from 'react';
 import "../../styles/auth.css";
 import Swal from 'sweetalert2'
@@ -8,36 +6,6 @@ import { useRouter } from 'next/navigation';
 import getAuthToken from "../../utils/getAuthToken"
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
-
-const sendOTP = async (formData) => {
-     try {
-          const authToken = localStorage.getItem('authToken');
-          console.log(authToken);
-          const res = await fetch(`${apiUrl}/api/verify-otp`, {
-               method: 'POST',
-               body: JSON.stringify(formData),
-               cache: 'no-store',
-               headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${authToken}`,
-               },
-          })
-          if (!res.ok) {
-
-               throw new Error('Failed to fetch data')
-          }
-
-          const data = await res.json()
-          console.log(data);
-
-          // const authToken = data.data.authToken
-          // console.log(authToken);
-          // localStorage.setItem('authToken', authToken);
-          return data;
-     } catch (error) {
-          console.error('An error occurred:', error);
-     }
-}
 const resendOTPEmail = async () => {
      try {
           const email = sessionStorage.getItem('email');
@@ -74,14 +42,15 @@ const resendOTPEmail = async () => {
 }
 
 
-const InputOTP = () => {
+const InputOTP = props => {
+
+     const { email } = props
+
      const [otp, setOtp] = useState(['', '', '', '', '', '']);
      const [isClicked, setIsClicked] = useState(false);
 
      const inputRefs = useRef([]);
      const router = useRouter();
-
-
 
      // Function to handle OTP input change
      const handleOtpChange = (index, value) => {
@@ -142,8 +111,8 @@ const InputOTP = () => {
                     icon: "error",
                     title: "Oops...",
                     text: "Something went wrong!",
-                  
-                  });
+
+               });
           }
      }
 
@@ -152,39 +121,47 @@ const InputOTP = () => {
           setIsClicked(true);
           const formData = {
                otp: otp.join(''),
+               email: email
           };
           try {
-               const response = await sendOTP(formData);
+               const res = await fetch(`${apiUrl}/api/verify-otp`, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    cache: 'no-store',
+               })
 
-               if (response.success === true) {
+               const data = await res.json()
+
+               if (data.success === true) {
 
                     Swal.fire({
-                         title: response.message,
+                         title: data.message,
                          text: "Welcome to SaveDrive",
                          icon: "success",
                          showConfirmButton: false,
                          timer: 2000
                     });
                     setTimeout(() => {
-                         router.replace('/enter-address');
+                         router.replace('dash/enter-address');
                     }, 1000);
-               } else if (response.success === false) {
+               } else if (data.success === false) {
                     Swal.fire({
                          icon: "error",
                          title: "Oops...",
-                         text: response.message,
+                         text: data.message,
                          showConfirmButton: false,
                          timer: 3000
                     });
                }
+
           } catch (error) {
                console.error('Error:', error);
                Swal.fire({
                     icon: "error",
                     title: "Oops...",
                     text: "Something went wrong!",
-                  
-                  });
+
+               });
           }
      };
 
@@ -201,7 +178,6 @@ const InputOTP = () => {
                                              <div className=' fs-4 fw-bold'>Verify OTP</div>
                                              <div className=' mb-30 '>Your code was sent to you via email</div>
                                              <div className='d-flex mt-10 mb-25' >
-
 
                                                   {otp.map((digit, index) => (
                                                        <div className=" mx-auto" style={{ maxWidth: '50px' }} key={index}>

@@ -14,44 +14,6 @@ export async function POST(req) {
 
      try {
 
-          const headersList = headers()
-          const bearerToken = headersList.get('authorization')
-
-          // console.log(bearerToken);
-
-          let token;
-
-          if (bearerToken) {
-               token = bearerToken.split(" ")[1]
-          }
-
-          // console.log(token);
-          if (!token) {
-               return NextResponse.json({
-                    message: "Unauthorized: Missing token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-          console.log(decoded);
-          if (!decoded.id) {
-               return NextResponse.json({
-                    message: "Unauthorized: Invalid token",
-                    status: 401,
-                    success: false,
-               });
-          }
-
-          const [checkUser] = await pool.promise().query(checkotp, [decoded.id]);
-
-
-          // console.log(checkUser);
-
-          if (!checkUser || checkUser === 0) return NextResponse.json({ message: "Unauthorized user", status: 401, success: false })
-
           const data = await req.json();
 
           // get the users credential from the request

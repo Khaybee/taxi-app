@@ -4,7 +4,7 @@ import Map from "../[driver]/map";
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2'
 
-export default function BookedRide() {
+export default function Booked() {
      const router = useRouter();
   
      return (

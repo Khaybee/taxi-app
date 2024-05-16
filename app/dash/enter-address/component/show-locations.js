@@ -1,11 +1,10 @@
 "use client"
-
 import Link from "next/link";
-import "../../styles/loggedHero.css";
-import { useEffect, useState } from "react";
+import "../../../styles/loggedHero.css";
 
 
-const DisplayLocations = ({ pickupAddress, destinationAddress }) => {
+const DisplayLocations = (props) => {
+
   return (
     <>
 

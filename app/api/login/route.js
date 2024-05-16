@@ -61,6 +61,7 @@ export async function POST(req) {
    
        // check that the hashed password in the previuos line of code is identical to the one stored in the database
        if (checkUser[0].password != hashedPassword)
+       
          return NextResponse.json({
            message: "Wrong Password",
            status: 400,

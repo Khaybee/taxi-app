@@ -2,9 +2,8 @@
 import { useState, useEffect, useReducer } from "react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
-import "../../styles/loggedHero.css";
+import "../../../styles/loggedHero.css";
 import Swal from 'sweetalert2'
-import getAuthToken from "../../utils/getAuthToken"
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
@@ -12,6 +11,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL
 const InputAddress = (props) => {
 
      const [showCompanies, setShowCompanies] = useState(false);
+     const [load, setLoad] = useState(false)
      const router = useRouter();
      const [pickup, setPickup] = useState('');
      const [destination, setDestination] = useState('');
@@ -21,22 +21,13 @@ const InputAddress = (props) => {
      const [companiesData, setCompaniesData] = useState([]);
 
      const handleGetOptionsClick = async () => {
+          setLoad(true)
           try {
-
-               const authToken = getAuthToken()
                const res = await fetch(`${apiUrl}/api/get-address`, {
                     method: 'POST',
                     body: JSON.stringify({ pickup, destination }),
                     cache: 'no-store',
-                    headers: {
-                         "Content-Type": "application/json",
-                         Authorization: `Bearer ${authToken}`,
-                    }
                })
-               if (!res.ok) {
-
-                    throw new Error('Failed to fetch data')
-               }
 
                const data = await res.json()
 
@@ -50,7 +41,7 @@ const InputAddress = (props) => {
                     setFaresData(fares);
                     setValuesData(values)
                     setCompaniesData(result)
-
+                    setLoad(false)
                     setShowCompanies(true);
                     localStorage.setItem('showCompanies', JSON.stringify(true));
                     localStorage.setItem('faresData', JSON.stringify(fares));
@@ -150,7 +141,7 @@ const InputAddress = (props) => {
                                                   <div className="col-lg-3 text-center my-2 py-4 px-3 " style={{ backgroundColor: '#fffaec', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center' }}>
 
                                                        <p className=" mb-1 fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="col" /><span>{faresData[index]}</span></p>
-                                                       <Link href={`/enter-address/${company.id}`} >
+                                                       <Link href={`/dash/enter-address/${company.id}`} >
                                                             <div className="btn-3 ss-btn smoth-scroll  z-0  ">
                                                                  See Drivers
                                                             </div>
@@ -163,6 +154,12 @@ const InputAddress = (props) => {
 
                                    </div>
                               </div>
+                         )}
+
+                         {load && (
+                              <>
+                                   <p>Loading your rides...</p>
+                              </>
                          )}
 
                     </div>

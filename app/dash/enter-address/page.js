@@ -1,6 +1,5 @@
 import InputAddress from "./component/inputAdd";
-import LoggedInNav from "../components/loggedInNav";
-
+import LoggedInNav from "../../components/loggedInNav";
 
 
 const AddressPage = () => {
@@ -8,7 +7,6 @@ const AddressPage = () => {
   return (
     <>
       <LoggedInNav />
-
       <InputAddress />
     </>
   );
