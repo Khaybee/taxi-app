@@ -32,23 +32,24 @@ const InputAddress = (props) => {
                const data = await res.json()
 
                if (data.success === true) {
-                    const result = data.data.companies
-                    const fares = data.data.fares
+                    // const result = data.data.companies
+                    const result = data.data.companiesWithFares
+
                     const values = data.data.values
+                  
 
-                    console.log(result);
-
-                    setFaresData(fares);
+                    // setFaresData(fares);
                     setValuesData(values)
                     setCompaniesData(result)
                     setLoad(false)
                     setShowCompanies(true);
+                    localStorage.clear();
                     localStorage.setItem('showCompanies', JSON.stringify(true));
-                    localStorage.setItem('faresData', JSON.stringify(fares));
+                    // localStorage.setItem('faresData', JSON.stringify(fares));
                     localStorage.setItem('companiesData', JSON.stringify(result));
                     localStorage.setItem('valuesData', JSON.stringify(values));
                } else if (data.success === false) {
-
+                    setLoad(false)
                     Swal.fire({
                          icon: "error",
                          title: "Something went wrong",
@@ -104,9 +105,12 @@ const InputAddress = (props) => {
                                         <div className="col-lg-3 text-center my-2 py-4 px-3 " style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center' }}>
 
 
-                                             <div className="btn ss-btn smoth-scroll z-0 w-75" onClick={handleGetOptionsClick}>
+                                             <div className="btn ss-btn smoth-scroll z-0 " onClick={handleGetOptionsClick}>
                                                   Get Options <i className="fal fa-long-arrow-up"></i>
                                              </div>
+                                             {/* <div className="btn ss-btn smoth-scroll z-0 w-75" onClick={handleGetOptionsClick}>
+                                                  Get Options <i className="fal fa-long-arrow-up"></i>
+                                             </div> */}
                                         </div>
                                    </form>
                               </div>
@@ -140,7 +144,8 @@ const InputAddress = (props) => {
                                                   </div>
                                                   <div className="col-lg-3 text-center my-2 py-4 px-3 " style={{ backgroundColor: '#fffaec', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center' }}>
 
-                                                       <p className=" mb-1 fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="col" /><span>{faresData[index]}</span></p>
+                                                       <p className=" mb-1 fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="col" /><span>{company.fare}</span></p>
+                                                       {/* <p className=" mb-1 fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="col" /><span>{faresData[index]}</span></p> */}
                                                        <Link href={`/dash/enter-address/${company.id}`} >
                                                             <div className="btn-3 ss-btn smoth-scroll  z-0  ">
                                                                  See Drivers

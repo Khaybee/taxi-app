@@ -7,7 +7,29 @@ import Booked from '../components/book'
 export default async function BookedRide({ params }) {
   const driver = params.driver;
 
-  const formData = { driver }
+  const addressString = localStorage.getItem('valuesData')
+ const pickup = localStorage.getItem('pickup')
+ 
+  const rideFare = localStorage.getItem('rideFare')
+  const destination = localStorage.getItem('destination')
+
+  if (pickup) {
+    try {
+         company = JSON.parse(companiesData)
+         address = JSON.parse(addressString)
+    } catch (error) {
+         console.error('Error parsing JSON:', error);
+    }
+}
+
+  // const selectedCompany = localStorage.getItem('selectedCompany')
+
+  const formData = {
+    driver: driver,
+    rideFare: rideFare,
+    pickup: pickup,
+    destination: destination,
+   }
 
   try {
     const headersInstance = headers()
@@ -25,15 +47,33 @@ export default async function BookedRide({ params }) {
     const data = await res.json();
 
     console.log(data);
+
+    let result;
+    let price;
+    
+    if (data.success === true) {
+      // const result = data.data.companies
+       result = data.data.selectedDriver
+
+       price = data.data.rideFare
+
+ } else if (data.success === false) {
+      setLoad(false)
+      Swal.fire({
+           icon: "error",
+           title: "Something went wrong",
+           text: data.message,
+           showConfirmButton: false,
+           timer: 2000
+      });
+ }
   } catch (error) {
     console.error("An error occurred: ", error);
   }
 
   return (
     <>
-      <div className=" container w-100 ">
-
-      </div>
+      <Booked data={result} fare={price}/>
 
     </>
   );

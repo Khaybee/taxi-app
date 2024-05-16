@@ -28,34 +28,35 @@ export async function POST(req) {
 
           const values = [pickupResult, destResult]
 
-          // console.log(values);
-
           const [companies] = await pool.promise().query("SELECT * FROM company");
 
-          let fares = [];
+          let companyFares = [];
 
-          for (const company of companies) {
+
+          for (let i = 0; i < companies.length; i++) {
                const fare = await generateRandomPrice();
-
-               fares.push(fare)
-
-
+               companyFares.push({ companyId: i + 1, fare });
           }
-          fares.sort((a, b) => a - b);
 
-          // const companiesWithPrice = companies.map(driver => ({
-          //      ...driver,
-          //      price: 
-          // }));
+          companyFares.sort((a, b) => a.fare - b.fare);
 
+          console.log(companyFares);
 
-          // console.log(fares);
+          const companiesWithFares = companies.map((company, index) => ({
+               ...company,
+               id: index + 1, // Adjust company ID to start from 1
+               fare: companyFares[index].fare
+          }));
+
+          // Sort companies by their original order
+          companiesWithFares.sort((a, b) => a.id - b.id);
+
 
           return NextResponse.json({
                success: true,
                status: 200,
                message: "Address gotten",
-               data: { companies, fares, values },
+               data: { companiesWithFares, values },
           });
      } catch (err) {
           return NextResponse.json({

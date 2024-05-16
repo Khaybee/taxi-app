@@ -3,7 +3,10 @@ import Link from "next/link";
 import "../../../styles/loggedHero.css";
 
 
-const DisplayLocations = (props) => {
+const DisplayLocations = ({pickupAddress, destinationAddress}) => {
+
+  console.log(pickupAddress);
+  console.log(destinationAddress);
 
   return (
     <>

@@ -6,25 +6,35 @@ import DisplayLocations from './show-locations'
 
 const ListDrivers = props => {
 
-     const { data } = props
-
-     const priceString = localStorage.getItem('faresData')
-     const addressString = localStorage.getItem('valuesData')
-
-     let price;
+     const { data, id } = props
+     let company;
      let address;
+     let chosenPrice;
 
-     if (priceString) {
+     const addressString = localStorage.getItem('valuesData')
+     const companiesData = localStorage.getItem('companiesData');
+
+     if (addressString) {
           try {
-               price = JSON.parse(priceString)
+               company = JSON.parse(companiesData)
                address = JSON.parse(addressString)
           } catch (error) {
                console.error('Error parsing JSON:', error);
           }
      }
-     console.log(price, address)
 
-     // const companyData = localStorage.getItem('companiesData')
+     const inputtedPickup = address[1].formatted.split(",")[0]
+     const inputtedDest = address[0].formatted.split(",")[0]
+
+     const selectedCompany = company.find(thecompany => thecompany.id === parseInt(id));
+     chosenPrice = selectedCompany.fare;
+
+     localStorage.setItem('destination', JSON.stringify(address[0].formatted));
+     localStorage.setItem('pickup', JSON.stringify(address[1].formatted));
+     localStorage.setItem('rideFare', JSON.stringify(chosenPrice));
+     localStorage.setItem('selectedCompany', JSON.stringify(selectedCompany));
+
+
      const [companiesDrivers, setCompaniesDrivers] = useState(data);
      const [pickupAddress, setPickupAddress] = useState([]);
      const [destinationAddress, setDestinationAddress] = useState([]);
@@ -32,11 +42,11 @@ const ListDrivers = props => {
 
      return (
           <>
-{/* 
+
                <DisplayLocations
-                    pickupAddress={pickupAddress}
-                    destinationAddress={destinationAddress}
-               /> */}
+                    pickupAddress={inputtedPickup}
+                    destinationAddress={inputtedDest}
+               />
 
                {/*  */}
                <div className="  container h-100">
@@ -58,7 +68,7 @@ const ListDrivers = props => {
                                         <div className=" " style={{ fontSize: "15px" }}>{drivers.waitTime} mins away</div>
                                    </div>
                                    <div className=" col-lg-2 col-md-2 d-sm-none d-md-flex d-lg-flex flex-column justify-content-center fs-3">
-                                        <p className="  fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="" /><span>{drivers.price}</span></p>
+                                        <p className="  fs-3 d-flex align-items-center"><img src="/images/icon/naira-icon.png" width="30px" height="30px" className="" /><span>{chosenPrice}</span></p>
                                    </div>
                                    <div className=" col-lg-4 col-md-4 col-sm-6 d-flex flex-column justify-content-lg-between align-items-end pe-lg-3 pe-sm-4 py-lg-4 py-sm-5 ">
 

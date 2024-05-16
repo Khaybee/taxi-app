@@ -18,14 +18,10 @@ export async function POST(req) {
 
           if (!id) return NextResponse.json({ message: "No company id returned", status: 400, success: false })
 
-               // console.log(address);
-               // console.log(address[0].formatted.split(",")[0]);
-               // console.log(address[1].formatted.split(",")[0]);
 
-               // const addy = {
-               //      pickupFrom: address[0].formatted.split(",")[0],
-               //      dropAt: address[1].formatted.split(",")[0]
-               // }
+               const randomNumber = Math.floor(Math.random() * 5) + 1;
+
+               console.log(randomNumber);
 
          const query = "select * from driver where company = ?"
 
