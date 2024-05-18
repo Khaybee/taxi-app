@@ -71,7 +71,7 @@ const InputAddress = (props) => {
           <>
                <div className=" bg-body-tertiary" style={{ height: '100%' }}>
                     <div className=" bg-body-secondary px-5 w-100 mb-100 " style={{ height: '10%' }}>
-                         <div className=" container w-75 ">
+                         <div className=" container w-75 mt-50 ">
                               <div className=" row py-5  ">
                                    <div className="">
                                         <p className="lead fw-bold fs-4 hero-question">
@@ -163,7 +163,9 @@ const InputAddress = (props) => {
 
                          {load && (
                               <>
-                                   <p>Loading your rides...</p>
+                                   <div className=" h-100 d-flex justify-content-center align-items-center">
+                                        <p className=" fs-4 fw-bold">Loading your rides...</p>
+                                   </div>
                               </>
                          )}
 

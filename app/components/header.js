@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { getServerSession } from 'next-auth/next';
 
 const Header = () => {
 
@@ -13,6 +14,18 @@ const Header = () => {
 
   const [activeMenuItem, setActiveMenuItem] = useState('');
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+const checkState = async () => {
+  const session = await getServerSession()
+
+  if (session.accessToken !== null && session.accessToken !== 0){
+    setIsLoggedIn(true)
+    console.log(session);
+    
+  }
+}
 
   const handleMenuItemClick = (menuItem) => {
     setActiveMenuItem(menuItem);
@@ -106,7 +119,7 @@ const Header = () => {
                       </ul>
 
                       <Link href="/auth" className="btn login-btn btn-primary ms-0 fs-5">
-                        Login
+                      {isLoggedIn ? "Log Out" : "Login"}
                       </Link>
                     </div>
                   </div>

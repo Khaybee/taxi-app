@@ -7,17 +7,17 @@ exports.sendMail = async (options) => {
   console.log(process.env.EMAIL_PASS);
 
   const transporter = nodemailer.createTransport({
-    // service: "hotmail",
-    host: "smtp-relay.brevo.com",
-    port: 465,
-    // auth: {
-    //   user: process.env.EMAIL_ADDRESS,
-    //   pass: process.env.EMAIL_PASS
-    // }
+    service: "hotmail",
+    // host: "smtp-relay.brevo.com",
+    // port: 465,
     auth: {
-  user: process.env.BREVO_USER,
-  pass: process.env.BREVO_PASS
-}
+      user: process.env.EMAIL_ADDRESS,
+      pass: process.env.EMAIL_PASS
+    }
+    //     auth: {
+    //   user: process.env.BREVO_USER,
+    //   pass: process.env.BREVO_PASS
+    // }
 
   });
 

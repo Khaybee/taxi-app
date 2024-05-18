@@ -23,27 +23,6 @@ const Contact = () => {
                       times, and more. Booking a taxi has never been easier!"
         image="url(images/banner/yellow-sportCar.jpg)"
       />
-
-      {/*  */}
-
-      {/* <div className="container col-xxl-8 px-4 py-5">
-                    <div classNameName="row flex-lg-row-reverse align-items-center g-5 py-5">
-                         <div classNameName="col-10 col-sm-8 col-lg-6">
-                              <img src="/images/bg/faq-img.png" classNameName="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
-                         </div>
-                         <div classNameName="col-lg-6">
-                              <h1 classNameName="display-5 fw-bold text-body-emphasis lh-1 mb-3">Need Support</h1>
-                              <p classNameName="lead">We would love to hear from you</p>
-                              <div classNameName="d-grid gap-2 d-md-flex justify-content-md-start">
-                                   <div>
-                                        Send a Message
-                                   </div>
-                                   <button type="button" classNameName="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                                   
-                              </div>
-                         </div>
-                    </div>
-               </div> */}
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">
         <div className="row align-items-center g-lg-5 py-5">
           <div className="col-lg-7 text-center text-lg-start">
@@ -53,6 +32,25 @@ const Contact = () => {
             <p className="col-lg-12 fs-5">
              {" We'd love to hear from you! If you have questions, suggestions, or just want to say hello, feel free to reach out. You can contact us via email or phone, on social media or simply type a message over here. We're here to help and look forward to hearing from you."}
             </p>
+      <div className=" mt-4">
+        
+      <a href="#">
+                    <i className="fab fa-facebook-f fs-1 me-5"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fab fa-instagram fs-1 me-5"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fab fa-twitter fs-1 me-5"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fal fa-envelope fs-1 me-5"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fal fa-phone fs-1 me-5"></i>
+                  </a>
+      
+      </div>
             
           </div>
           <div className="col-md-10 mx-auto col-lg-5">

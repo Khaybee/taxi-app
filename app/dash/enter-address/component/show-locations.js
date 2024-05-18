@@ -5,13 +5,13 @@ import "../../../styles/loggedHero.css";
 
 const DisplayLocations = ({pickupAddress, destinationAddress}) => {
 
-  console.log(pickupAddress);
-  console.log(destinationAddress);
+  // console.log(pickupAddress);
+  // console.log(destinationAddress);
 
   return (
     <>
 
-      <div className=" bg-body-tertiary" style={{ height: '100%' }}>
+      <div className=" pt-70 bg-body-tertiary" style={{ height: '100%' }}>
         <div className="bg-body-secondary px-5 w-100 mb-100 " style={{ height: '10%' }}>
           <div className=" container w-75 ">
             <div className=" row py-5  ">

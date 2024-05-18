@@ -25,15 +25,15 @@ const Services = () => {
       {/*  */}
 
       <div className="  bg-body-secondary rounded-1">
-      <div class="contain col-xxl-10 px-4 pt-5 pb-3">
-        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="container col-xxl-10 px-4 pt-5 pb-3">
+        <div className="row flex-lg-row-reverse align-items-center g-5 py-5 ">
           <div className="col-10 col-sm-8 col-lg-5">
             <img
-              src="/images/bg/faq-img.png"
+              src="/images/icon/ridesharing-apps.jpg"
               className="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
-              width="600"
-              height="400"
+              width="900"
+              height="900"
               loading="lazy"
             />
           </div>
@@ -41,7 +41,7 @@ const Services = () => {
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               Ride Comparison
             </h1>
-            <p className="lead fs-4 text-black ">
+            <p className="lead text-black " style={{fontSize: "20px"}}>
               Our core service is the ability to compare different taxi-hailing
               services in real time. By entering your pickup and destination
               addresses, you can instantly see a list of available rides from
@@ -55,19 +55,19 @@ const Services = () => {
       </div>
       </div>
 
-      <div class="contain col-xxl-10 px-4 py-5">
+      <div class="container col-xxl-10 px-4 py-5">
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-lg-7 ">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               Direct Booking
             </h1>
-            <p className="lead fs-4 text-black">
+            <p className="lead text-black" style={{fontSize: "20px"}}>
               {"Once you've found the ideal ride, you can book it directly through our platform. No need to switch apps or websites—everything is done in one place. Our seamless booking process ensures you can secure your ride quickly and conveniently."}
             </p>
           </div>
           <div className="col-10 col-sm-8 col-lg-5">
             <img
-              src="/images/bg/faq-img.png"
+              src="/images/icon/direct-booking.jpg"
               className="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
               width="500"

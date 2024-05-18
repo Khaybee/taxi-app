@@ -47,6 +47,9 @@ const InputOTP = props => {
 
      const { email } = props
 
+     const mail = email
+     console.log(mail);
+
      const [otp, setOtp] = useState(['', '', '', '', '', '']);
      const [isClicked, setIsClicked] = useState(false);
 
@@ -84,22 +87,18 @@ const InputOTP = props => {
      const handleResendOTP = async (e) => {
           e.preventDefault()
           setIsClicked(true)
-          const formData = {
-               email: email
-          }
 
           try {
               
-               console.log(formData);
+               console.log(email);
                const res = await fetch(`${apiUrl}/api/resend-otp`, {
                     method: 'POST',
      
                     cache: 'no-store',
                     headers: {
                          "Content-Type": "application/json",
-     
                     },
-                    body: JSON.stringify({ formData })
+                    body: JSON.stringify(mail)
                })
                const data = await res.json()
         
@@ -148,6 +147,8 @@ const InputOTP = props => {
                })
 
                const data = await res.json()
+
+               console.log(data);
 
                if (data.success === true) {
                     try {

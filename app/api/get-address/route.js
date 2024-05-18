@@ -15,7 +15,9 @@ export async function POST(req) {
           if (!pickup || !destination) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
 
           const pickupResult = await getLongLat(pickup)
+          console.log(pickupResult);
           const destResult = await getLongLat(destination)
+          console.log(destResult);
 
           if (!pickupResult || !destResult) {
                console.log("Address not found");
@@ -40,7 +42,7 @@ export async function POST(req) {
 
           companyFares.sort((a, b) => a.fare - b.fare);
 
-          console.log(companyFares);
+          // console.log(companyFares);
 
           const companiesWithFares = companies.map((company, index) => ({
                ...company,

@@ -23,14 +23,14 @@ const ListDrivers = props => {
           }
      }
 
-     const inputtedPickup = address[1].formatted.split(",")[0]
-     const inputtedDest = address[0].formatted.split(",")[0]
+     const inputtedPickup = address[0].formatted.split(",")[0]
+     const inputtedDest = address[1].formatted.split(",")[0]
 
      const selectedCompany = company.find(thecompany => thecompany.id === parseInt(id));
      chosenPrice = selectedCompany.fare;
 
-     localStorage.setItem('destination', JSON.stringify(address[0].formatted));
-     localStorage.setItem('pickup', JSON.stringify(address[1].formatted));
+     localStorage.setItem('destination', JSON.stringify(address[1].formatted));
+     localStorage.setItem('pickup', JSON.stringify(address[0].formatted));
      localStorage.setItem('rideFare', JSON.stringify(chosenPrice));
      localStorage.setItem('selectedCompany', JSON.stringify(selectedCompany));
 

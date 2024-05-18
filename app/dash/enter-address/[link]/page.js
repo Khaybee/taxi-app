@@ -1,3 +1,4 @@
+import LoggedInNav from "../../../components/loggedInNav";
 import "../../../styles/loggedHero.css";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
 import ListDrivers from '../component/listDrivers'
@@ -31,6 +32,7 @@ const AvailableDrivers = async ({ params }) => {
      
      return (
           <>
+          <LoggedInNav />
                <ListDrivers data={drivers} id={id} />
           </>
      );

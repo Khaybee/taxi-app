@@ -1,0 +1,15 @@
+.form-check.position-relative .badge {
+     display: none;
+}
+
+.form-check-label:hover .badge,
+.form-check-label:hover .tooltip {
+     display: block;
+}
+
+.tooltip {
+     font-size: 12px;
+     white-space: nowrap;
+     display: none;
+     
+}

@@ -8,7 +8,6 @@ import getAddress from '../utils/reverse-geocoder'
 
 
 export async function POST(req) {
-     // export async function POST(req) {
 
      try {
 
@@ -21,7 +20,7 @@ export async function POST(req) {
 
                const randomNumber = Math.floor(Math.random() * 5) + 1;
 
-               console.log(randomNumber);
+               // console.log(randomNumber);
 
          const query = "select * from driver where company = ?"
 

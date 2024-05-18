@@ -23,6 +23,8 @@ export async function POST(req) {
 
           const [checkPin] = await pool.promise().query(checkotp, [email]);
 
+               console.log(checkPin[0].otp);
+               console.log(otp);
 
           if (checkPin[0].otp !== parseInt(otp)) {
                return NextResponse.json({

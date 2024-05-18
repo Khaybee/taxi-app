@@ -43,7 +43,7 @@ const About = () => {
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               Our Story
             </h1>
-            <p className="lead">
+            <p className="fs-5">
               SaveDrive began with a simple idea: to make finding and booking
               taxis easier and more affordable for everyone. Our founders, a
               group of tech enthusiasts and transportation experts, saw the need
@@ -62,7 +62,7 @@ const About = () => {
         <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
           <div class="col d-flex flex-column align-items-start gap-2">
             <h2 class="fw-bold text-body-emphasis ">Our Team</h2>
-            <p class="text-body-secondary fs-4">
+            <p class="text-body-secondary fs-5">
               {"Our team is a diverse group of professionals with backgrounds in technology, transportation, customer service, and more. We're united by a passion for making transportation easier and moreaccessible. Our collaborative approach and commitment to excellence drive us to deliver outstanding results."}
             </p>
           </div>
@@ -71,7 +71,28 @@ const About = () => {
             <div class="row row-cols-1 row-cols-sm-2 g-5">
               <div class="col d-flex flex-column gap-2">
                 <Image
-                  src="/images/team/team01.png"
+                  src="/images/team/about1.jpg"
+                  className=" rounded-5"
+                  alt="search Image"
+                  width={1000}
+                  height={1000}
+                  style={{ width: "", height: "100%" }}
+                />
+              </div>
+
+              <div class="col d-flex flex-column gap-2">
+                <Image
+                  src="/images/team/about2.jpg"
+                  className=" rounded-5"
+                  alt="search Image"
+                  width={1000}
+                  height={1000}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+              <div class="col d-flex flex-column gap-2">
+                <Image
+                  src="/images/team/about3.jpg"
                   className=" rounded-5"
                   alt="search Image"
                   width={1000}
@@ -82,28 +103,7 @@ const About = () => {
 
               <div class="col d-flex flex-column gap-2">
                 <Image
-                  src="/images/team/team02.png"
-                  className=" rounded-5"
-                  alt="search Image"
-                  width={1000}
-                  height={1000}
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </div>
-              <div class="col d-flex flex-column gap-2">
-                <Image
-                  src="/images/team/team03.png"
-                  className=" rounded-5"
-                  alt="search Image"
-                  width={1000}
-                  height={1000}
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </div>
-
-              <div class="col d-flex flex-column gap-2">
-                <Image
-                  src="/images/team/team04.png"
+                  src="/images/team/about4.jpg"
                   className=" rounded-5"
                   alt="search Image"
                   width={1000}

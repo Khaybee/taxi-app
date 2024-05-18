@@ -22,7 +22,7 @@ export default async function getLongLat(address) {
       formatted:data.results[0].formatted,
     };
 
-    console.log(coordinates);
+    // console.log(coordinates);
     return coordinates;
   } catch (err) {
     console.error("An error occurred: ", err);
