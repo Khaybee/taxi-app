@@ -130,7 +130,7 @@ export async function GET(req) {
                console.log("Unauthorized");
                
              }
-             const me = "kachieosuji11@gmail.com"
+             const me = "popoolad14@gmail.com"
 
           // const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [userEmail])
           const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [me])

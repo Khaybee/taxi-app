@@ -50,6 +50,7 @@ const deleteRide = async () => {
 
 
 const Booked = props => {
+     const router = useRouter()
 
 
      // const { data, fare } = props
@@ -80,7 +81,7 @@ const Booked = props => {
                    text: "Your ride has been canceled.",
                    icon: "success"
                  });
-                 
+                 router.replace('/dash/enter-address')
                //   deleteRide()
                }
              });

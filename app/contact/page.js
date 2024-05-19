@@ -10,8 +10,13 @@ import Hero from "../components/hero";
 import Banner from "../components/banner";
 import AboutUs from "../components/aboutUs";
 import Footer from "../components/footer";
+import { toast } from "react-toastify";
 
-const Contact = () => {
+const Contact = () => { 
+
+  const sendMessage= () => {
+    toast.success("Message sent")
+  }
   return (
     <>
       <Header />
@@ -73,6 +78,7 @@ const Contact = () => {
                   rows="10"
                   cols="36"
                   className=" p-3 w-100 fs-5" placeholder="Write message"
+                  
                 >
                 
                 </textarea>
@@ -80,7 +86,8 @@ const Contact = () => {
 
               <button
                 className="w-100 btn btn-lg btn-primary mt-10"
-                type="submit"
+                type="button"
+                onClick={sendMessage}
               >
                 SEND
               </button>

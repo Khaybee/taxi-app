@@ -22,6 +22,8 @@ export async function POST(req) {
           // get the users credential from the request
           const {driver, pickup, destination, rideFare } = data;
 
+          console.log(userEmail);
+
           if (!driver || !pickup || !destination || !rideFare ) return NextResponse.json({ message: "Please enter address", status: 400, success: false })
 
           const [user_idResult] = await pool.promise().query("SELECT id from user where email = ?", [userEmail])
