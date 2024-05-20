@@ -149,31 +149,46 @@ const InputOTP = props => {
                const data = await res.json()
 
                console.log(data);
+           
 
                if (data.success === true) {
-                    try {
-                         const result = await signIn('credentials', {
-                              redirect: false,
-                              email: email,
-                         });
-                         if (result.error) {
-                              console.error('Error signing in:', result.error);
-                         } else {
-                              Swal.fire({
-                                   title: data.message,
-                                   text: "Welcome to SaveDrive",
-                                   icon: "success",
-                                   showConfirmButton: false,
-                                   timer: 2000
-                              });
-                              setTimeout(() => {
-                                   router.replace('/dash/enter-address');
-                              }, 1000);
-                         }
+                    Swal.fire({
+                         title: data.message,
+                         text: "Welcome to SaveDrive",
+                         icon: "success",
+                         showConfirmButton: false,
+                         timer: 1500
+                    });
 
-                    } catch (error) {
-                         console.error('Error signing in:', error);
-                    }
+                    // router.replace('/dash/enter-address');
+                    setTimeout(() => {
+                         router.replace('/dash/enter-address');
+                    }, 1000);
+                    // try {
+                    //      const result = await signIn('credentials', {
+                    //           redirect: false,
+                    //           email: email,
+                    //      });
+                    //      if (result.error) {
+                    //           console.error('Error signing in:', result.error);
+                    //      } else {
+                    //           Swal.fire({
+                    //                title: data.message,
+                    //                text: "Welcome to SaveDrive",
+                    //                icon: "success",
+                    //                showConfirmButton: false,
+                    //                timer: 2000
+                    //           });
+
+                    //           router.replace('/dash/enter-address');
+                    //           // setTimeout(() => {
+                    //           //      router.replace('/dash/enter-address');
+                    //           // }, 1000);
+                    //      }
+
+                    // } catch (error) {
+                    //      console.error('Error signing in:', error);
+                    // }
 
                } else if (data.success === false) {
                     Swal.fire({

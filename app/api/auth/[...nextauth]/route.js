@@ -8,7 +8,7 @@ const authOptions = ({
         CredentialsProvider({
             async authorize(credentials) {
                 // Check if either email or password is empty
-                if (!credentials.email) {
+                if (!credentials.email || !credentials.password) {
                     throw new Error("Empty email or password");
                 }
 

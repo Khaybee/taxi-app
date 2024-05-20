@@ -64,7 +64,7 @@ export async function POST(req) {
              console.log("Unauthorized");
              return NextResponse.json({ message: "Unauthorized", status: 401, success: false });
          }
- 
+         
          const data = await req.json();
          const { firstName, lastName, email, address, phone, city } = data;
  
@@ -117,59 +117,59 @@ export async function POST(req) {
  
 
 
-export async function GET(req) {
+// export async function GET(req) {
 
-     try {
-          let userEmail;
-          const session = await getServerSession({ req });
-          console.log(session);
-          if (session) {
+//      try {
+//           let userEmail;
+//           const session = await getServerSession({ req });
+//           console.log(session);
+//           if (session) {
                
-               userEmail = session.user.email;
-             } else {
-               console.log("Unauthorized");
+//             userEmail = session.user.email;
+//              } else {
+//                console.log("Unauthorized");
                
-             }
-             const me = "popoolad14@gmail.com"
+//              }
+//              const me = "popoolad14@gmail.com"
 
-          // const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [userEmail])
-          const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [me])
+//           // const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [userEmail])
+//           const [userResult] = await pool.promise().query("SELECT * from user where email = ?", [me])
 
-          const user = userResult[0];
+//           const user = userResult[0];
 
-          if (!user) {
-            return NextResponse.json({
-              success: false,
-              message: "User not found",
-              status: 404,
-            });
-          }
+//           if (!user) {
+//             return NextResponse.json({
+//               success: false,
+//               message: "User not found",
+//               status: 404,
+//             });
+//           }
 
-          const user_id = user.id
-          const firstName = user.fullName.split(" ")[0]
-          const lastName  = user.fullName.split(" ")[1]
+//           const user_id = user.id
+//           const firstName = user.fullName.split(" ")[0]
+//           const lastName  = user.fullName.split(" ")[1]
 
-          const addCountry = "Nigeria"
+//           const addCountry = "Nigeria"
 
-          const [countResult] = await pool.promise().query("SELECT COUNT(*) AS count FROM ride WHERE user_id = ?", [user_id]);
-          const count_rides = countResult[0].count;
+//           const [countResult] = await pool.promise().query("SELECT COUNT(*) AS count FROM ride WHERE user_id = ?", [user_id]);
+//           const count_rides = countResult[0].count;
           
-          return NextResponse.json({
-               success: true,
-               status: 200,
-               message: "ride booked",
-               data: { user: {
-                    ...user,
-                    firstName,
-                    lastName,
-                    addCountry
-                }, count_rides: count_rides}
-          });
-     } catch (err) {
-          return NextResponse.json({
-               success: false,
-               message: `Something went wrong: ${err.message}`,
-               status: 500,
-          });
-     }
-}
+//           return NextResponse.json({
+//                success: true,
+//                status: 200,
+//                message: "ride booked",
+//                data: { user: {
+//                     ...user,
+//                     firstName,
+//                     lastName,
+//                     addCountry
+//                 }, count_rides: count_rides}
+//           });
+//      } catch (err) {
+//           return NextResponse.json({
+//                success: false,
+//                message: `Something went wrong: ${err.message}`,
+//                status: 500,
+//           });
+//      }
+// }

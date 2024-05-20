@@ -101,8 +101,8 @@ const Form = () => {
   const login = async event => {
     toast.loading('Please wait');
     event.preventDefault()
-    const enteredEmail = emailRef.current.value;
-    const enteredPassword = passwordRef.current.value;
+    let enteredEmail = emailRef.current.value;
+    let enteredPassword = passwordRef.current.value;
 
     try {
       const result = await signIn('credentials', {
@@ -117,6 +117,9 @@ const Form = () => {
       } else {
         toast.dismiss()
         toast.success('Login success')
+        enteredEmail = ""
+        enteredPassword = ""
+        
         router.push('/dash/enter-address');
       }
 
@@ -186,6 +189,8 @@ const Form = () => {
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
+
+        <a href="/"><img src="/images/icon/go_back_icon2.webp" width="35px" className=" " />Back to Home Page</a>
 
         <div className="wrapper shadow-lg">
           <div className="title-text">

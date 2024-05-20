@@ -128,7 +128,7 @@ const LoggedInNav = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item fs-5 drop-li" href="#">
+                  <a className="dropdown-item fs-5 drop-li" href="/dash/my-rides">
                     My Rides
                   </a>
                 </li>

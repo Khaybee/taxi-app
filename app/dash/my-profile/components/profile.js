@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
-
-
 const ProfileDetails = (props) => {
 
      const { user, rideCount } = props
@@ -81,6 +79,7 @@ const ProfileDetails = (props) => {
         }).then(async (result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
+               toast.loading("Saving Details")
 
           setTimeout(async() => {
                await handleSave()

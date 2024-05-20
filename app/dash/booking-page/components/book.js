@@ -81,6 +81,7 @@ const Booked = props => {
                    text: "Your ride has been canceled.",
                    icon: "success"
                  });
+                 localStorage.removeItem('rideSent');
                  router.replace('/dash/enter-address')
                //   deleteRide()
                }
